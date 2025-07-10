@@ -1,6 +1,6 @@
 ### Átvett anyagrész:
 
-Halimi 4.2 273-281. oldal (elmélet + feladatok)
+**Halimi 4.2**: 5.1-5.2 fejezet, 273-281. oldal (elmélet + feladatok)
 
 ### Számrendszerek:
 
