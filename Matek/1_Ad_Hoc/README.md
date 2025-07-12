@@ -51,5 +51,6 @@ A polinomokkal érdemes tudni hatékonyan bánni, a velük kapcsolatos alap oper
 Egyes feladatoknál [számláló / nevező] alakban kell dolgozni a nem egész számokkal.
 
 - tört egyszerűsítés (gcd)
+- alapműveletek (+, -, *, /)
 - végtelen tizedestört -> "valódi tört" konverzió (ld. [Törtes trükk](tortes_trukk.md))
 - megnézett feladat: [Kattis - Dead Fraction](https://open.kattis.com/problems/deadfraction)
