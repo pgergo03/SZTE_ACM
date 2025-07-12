@@ -43,6 +43,7 @@ A polinomokkal érdemes tudni hatékonyan bánni, a velük kapcsolatos alap oper
 - másodfokú polinom zérushelyei
 - deriválás
 - szélsőértékek keresése
+- példakód: [poly.cpp](poly.cpp)
 - megnézett feladat: [Kattis - Stacking Curvy Blocks](https://open.kattis.com/problems/curvyblocks)
 
 ### Törtszámok:
