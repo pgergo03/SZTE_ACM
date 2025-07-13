@@ -12,7 +12,7 @@ Példakódok:
 A be-/kimenet vagy pl. a feladat egy feltétele nem 10-es számrendszerben van megadva, így tetszőleges számrendszert tudni kell hatékonyan használni.
 
 - számrendszer konverziók
-    - általános közvetve (x $\rarr$ y): (x $\rarr$ 10), (10 $\rarr$ y)
+    - általános közvetve (x $\rightarrow$ y): (x $\rightarrow$ 10), (10 $\rightarrow$ y)
     - néhány speciális átváltás közvetlenül pl. (4 $\rightleftarrows$ 2), (8 $\rightleftarrows$ 2), (16 $\rightleftarrows$ 2) stb.
 - adott számrendszerben lévő szám beolvasása + validálás ([c++ 3 paraméteres stoi](https://cplusplus.com/reference/string/stoi/))
 - megnézett feladat:
@@ -52,7 +52,7 @@ A polinomokkal érdemes tudni hatékonyan bánni, a velük kapcsolatos alap oper
 
 ### Törtszámok:
 
-Egyes feladatoknál $számláló \over nevezo$ alakban kell dolgozni a nem egész számokkal.
+Egyes feladatoknál $számláló \over nevező$ alakban kell dolgozni a nem egész számokkal.
 
 - tört egyszerűsítés (gcd)
 - alapműveletek (+, -, *, /)
