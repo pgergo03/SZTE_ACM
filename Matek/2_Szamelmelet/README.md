@@ -47,9 +47,9 @@ Az alábbi függvények a prímtényezőkre bontó algoritmus segítségével/ki
 
 - (különböző) prímtényezők száma
     - felbontás + közben számlálás<br>
-- $osztókSzáma(n)=\prod_{prím|n}(kitev\H{o}(prím, n)+1)$
+- $osztókSzáma(n)=\prod_{prím|n}(kitevő(prím, n)+1)$
     - 1 osztó kiválasztása: minden prímtényezőre kiválasztjuk, hogy melyik hatványon használjuk fel
-- $osztókÖsszege(n)=\prod_{prím|n}{prím^{kitev\H{o}(prím, n)+1}-1 \over prím-1}$
+- $osztókÖsszege(n)=\prod_{prím|n}{prím^{kitevő(prím, n)+1}-1 \over prím-1}$
     - ugyanaz az elv, csak itt az összegzés miatt prímtényezőnként 1-1 mértani sorozatot összegzünk ($p^{0}+p^{1}+p^{2}+...$)
 - $osztókSzorzata(n)=n^{osztókSzáma(n) \over 2}$
     - 1-1 prím kitevője az összes osztón átlagosan az n-ben lévő kitevőjének a fele, ezután már könnyen kijön...
