@@ -9,7 +9,9 @@ Anyagrész: **Halimi 4.2:** 5. fejezet, 273-324. oldal
 
 ### Számelmélet
 
-*TBD*
+- Prímszámok, szita algoritmusok, prímtesztek
+- Prímtényezős felbontás, számok osztói
+- ...
 
 ### Kombinatorika
 

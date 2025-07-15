@@ -52,7 +52,7 @@ A polinomokkal érdemes tudni hatékonyan bánni, a velük kapcsolatos alap oper
 
 ### Törtszámok:
 
-Egyes feladatoknál $számláló \over nevező$ alakban kell dolgozni a nem egész számokkal.
+Egyes feladatoknál $számláló \over nevez\H{o}$ alakban kell dolgozni a nem egész számokkal.
 
 - tört egyszerűsítés (gcd)
 - alapműveletek (+, -, *, /)
