@@ -11,7 +11,7 @@ Példakódok:
 ### Prímszámok:
 
 - fontos tulajdonságok
-    - prímszám: olyan poz. egész, aminek nincs valódi osztója
+    - prímszám: olyan poz. egész, aminek nincs valódi osztója (azaz csak 2 triviális osztója van: 1 és önmaga)
     - minden $n$ összetett számnak van legalább 1 olyan $p$ prímosztója, melyre $p\le\sqrt{n}$
     - prímszámok *"sűrűsége"*
         - felső korlát a prímek számára $[1, N]$-en: $\pi(N)=O({N \over \ln(N)-1})$
@@ -64,8 +64,9 @@ Az eratoszthenészi szita kis módosításával néhány prímtényezőkön alap
 
 - különböző prímosztók száma
 - Euler-féle Phi függvény
-- megnézett feladatok:
-[Kattis - Big Data](https://open.kattis.com/problems/data),
+- megnézett feladat:
+[Kattis - Big Data](https://open.kattis.com/problems/data)
+- további érdekes feladatok:
 [Kattis - Farey Sequence Length](https://open.kattis.com/problems/farey),
 [Kattis - Non-Prime Factors](https://open.kattis.com/problems/nonprimefactors)
 
