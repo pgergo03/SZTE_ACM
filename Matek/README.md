@@ -1,6 +1,6 @@
 ## Tartalom
 
-Anyagrész: **Halimi 4.2:** 5. fejezet, 273-324. oldal
+Főleg matematikai témakörökhöz tartozó tudnivalók.
 
 ### Ad Hoc
 

@@ -1,6 +1,6 @@
 ### Ide tartozó anyagrész:
 
-**Halimi 4.2**: 5.1-5.2 fejezet, 273-281. oldal
+**Halimi 4.2:** 5.1-5.2 fejezet, 273-281. oldal
 
 Példakódok:
 
