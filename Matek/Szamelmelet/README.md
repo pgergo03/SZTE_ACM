@@ -117,19 +117,19 @@ Gyakran ezt kell használni olyan feladatoknál, ahol nagyon nagy számokkal kel
 
 Az euklideszi algoritmus módosított, kibővített változata.
 
-- $(a, b)$-re $g=\gcd(a, b)$ mellett meghatároz 1 olyan $(x, y)$ egész számpárt is, melyre $a\*x+b\*y=g$ (ld. [euclidean_alg.cpp](euclidean_alg.cpp))
+- $(a, b)$-re $g=\gcd(a, b)$ mellett meghatároz 1 olyan $(x, y)$ egész számpárt is, melyre $a\ast x+b\ast y=g$ (ld. [euclidean_alg.cpp](euclidean_alg.cpp))
 - Felhasználási esetek:
     - multiplikatív inverz
-        - $a\*x \equiv 1 (mod \space m) \rightarrow a\*x+m\*y=1(=\gcd(a, m)) \rightarrow x$ kiszámítható $gcdExt(a, m)$ futtatásával
+        - $a \ast x \equiv 1 (mod \space m) \rightarrow a \ast x+m \ast y=1(=\gcd(a, m)) \rightarrow x$ kiszámítható $gcdExt(a, m)$ futtatásával
     - 2 változós lineáris diofantoszi egyenletek megoldása
-        - lin. diof-i egyenlet: $a\*x+b\*y=c$
+        - lin. diof-i egyenlet: $a \ast x+b \ast y=c$
             - $(a, b, c)$ adott egész
             - $(x, y)$ ismeretlen egész
         - létezik (végtelen sok) megoldás $\Leftrightarrow \gcd(a, b)|c$
         - 1 megoldás megtalálása
-            - $gcdExt(a, b) \rightarrow a\*x+b\*y=g(=\gcd(a, b))$-re megvan $(x, y, g)$
-            - $x_0:=x\*{c \over g}, y_0:=y\*{c \over g} \rightarrow a\*x_0+b\*y_0=c(=g\*{c \over g})$-re megvan $(x_0, y_0)$
+            - $gcdExt(a, b) \rightarrow a \ast x+b \ast y=g(=\gcd(a, b))$-re megvan $(x, y, g)$
+            - $x_0:=x \ast {c \over g}, y_0:=y \ast {c \over g} \rightarrow a \ast x_0+b \ast y_0=c(=g \ast {c \over g})$-re megvan $(x_0, y_0)$
         - ebből más megoldások kiszámítása
-            - $x_i=x_0+i\*{b \over g}, y_i=y_0-i\*{a \over g}$ (ahol: $i$ egész)
+            - $x_i=x_0+i \ast {b \over g}, y_i=y_0-i \ast {a \over g}$ (ahol: $i$ egész)
 - megnézett feladat:
 [Kattis - So You Like Your Food Hot?](https://open.kattis.com/problems/soyoulikeyourfoodhot)
