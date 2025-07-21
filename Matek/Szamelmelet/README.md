@@ -1,12 +1,14 @@
 ### Ide tartozó anyagrész:
 
-**Halimi 4.2:** 5.3 fejezet, 282-297. oldal
+**Halimi 4.2:** 5.3 fejezet, 282-297. oldal<br>
+**CP Algorithms:** [Extended Euclidean Algorithm](https://cp-algorithms.com/algebra/extended-euclid-algorithm.html)
 
 Példakódok:
 
 - [Prímteszt algoritmusok (prime_testing.cpp)](prime_testing.cpp)
 - [Prímtényezős felbontás algoritmusa (prime_factorization.cpp)](prime_factorization.cpp)
-- ...
+- [Modulo aritmetika (modular_arithmetic.cpp)](modular_arithmetic.cpp)
+- [Euklideszi algoritmus (euclidean_alg.cpp)](euclidean_alg.cpp)
 
 ### Prímszámok:
 
@@ -72,12 +74,62 @@ Az eratoszthenészi szita kis módosításával néhány prímtényezőkön alap
 
 ### Legnagyobb közös osztó & Legkisebb közös többszörös
 
-*TBD*
+Sokszor egy kis részfeladata egy nagyobb feladatnak. Önmagában nem szokott csak erről szólni egy feladat.
+
+- a legnagyobb közös osztó (gcd) az euklideszi algoritmussal könnyen számítható $O(\log{n})$ időben (szó szerint 1 soros algoritmus)
+- a legkisebb közös többszörösre (lcm) pedig: $lcm(a, b)={a*b \over \gcd(a, b)}=(a/\gcd(a, b))*b$
+    - az utolsó alakkal kisebb az overflow *esélye*
+- prímtényezőkre bontott alakban:
+    - gcd: tényezőnként a minimális, valamelyik számban előforduló kitevőt veszük
+    - lcm: ua. csak a maximálisat
+- $n$ elemnél:
+    - $\gcd(a_1, a_2, a_3, ...)=\gcd(a_1, \gcd(a_2, a_3, ...))$
+    - $lcm(a_1, a_2, a_3, ...)=lcm(a_1, lcm(a_2, a_3, ...))$
+- megnézett feladatok:
+[Kattis - Prsteni](https://open.kattis.com/problems/prsteni),
+[Kattis - Smallest Multiple](https://open.kattis.com/problems/smallestmultiple)
 
 ### Modulo aritmetika
 
-*TBD*
+Gyakran ezt kell használni olyan feladatoknál, ahol nagyon nagy számokkal kell dolgozni (a feladat így kéri az eredményt). (A másik eszköz a BigInt, de ez jóval ritkább.)
+
+- negatív számokkal vigyázni kell!
+    - pl. $-7 \equiv 2 (mod \space 3)$, de c++/java-ban `-7%3==-1`
+- műveletek:
+    - összeadás: `(a+b)%m` vagy `(a%m + b%m)%m`
+    - kivonás: `((a-b)%m+m)%m`
+    - szorzás: `(a*b)%m` vagy `(a%m * b%m)%m`
+    - osztás: szorzás a moduláris multiplikatív inverzzel (ha létezik)
+- moduláris multiplikatív inverz számítási módjai
+    - $m$ prím $\rightarrow$ kis Fermat tétel miatt: $a^{-1} \equiv a^{m-2} (mod \space m)$
+        - $a^{b}$-t (modulo m-ben is) ki lehet számítani $O(\log{b})$ időben (ld. [modular_arithmetic.cpp](modular_arithmetic.cpp))
+    - $\gcd(a, m)=1 \rightarrow$ ...
+        - Euler tétel miatt: $a^{-1} \equiv a^{\varphi(m)-1} (mod \space m)$
+            - $\varphi(m)$: Euler-féle phi fgv.
+            - szintén csak hatványozás
+        - Kiterjesztett euklideszi algoritmus alkalmazása
+- megnézett feladatok:
+[Kattis - Ones](https://open.kattis.com/problems/ones),
+[Kattis - Three Digits](https://open.kattis.com/problems/threedigits)
+
 
 ### Kiterjesztett euklideszi algoritmus
 
-*TBD*
+Az euklideszi algoritmus módosított, kibővített változata.
+
+- $(a, b)$-re $g=\gcd(a, b)$ mellett meghatároz 1 olyan $(x, y)$ egész számpárt is, melyre $a*x+b*y=g$ (ld. [euclidean_alg.cpp](euclidean_alg.cpp))
+- Felhasználási esetek:
+    - multiplikatív inverz
+        - $a*x \equiv 1 (mod \space m) \rightarrow a*x+m*y=1(=\gcd(a, m)) \rightarrow x$ kiszámítható $gcdExt(a, m)$ futtatásával
+    - 2 változós lineáris diofantoszi egyenletek megoldása
+        - lin. diof-i egyenlet: $a*x+b*y=c$
+            - $(a, b, c)$ adott egész
+            - $(x, y)$ ismeretlen egész
+        - létezik (végtelen sok) megoldás $\Leftrightarrow \gcd(a, b)|c$
+        - 1 megoldás megtalálása
+            - $gcdExt(a, b) \rightarrow a*x+b*y=g(=\gcd(a, b))$-re megvan $(x, y, g)$
+            - $x_0:=x*{c \over g}, y_0:=y*{c \over g} \rightarrow a*x_0+b*y_0=c(=g*{c \over g})$-re megvan $(x_0, y_0)$
+        - ebből más megoldások kiszámítása
+            - $x_i=x_0+i*{b \over g}, y_i=y_0-i*{a \over g}$ (ahol: $i$ egész)
+- megnézett feladat:
+[Kattis - So You Like Your Food Hot?](https://open.kattis.com/problems/soyoulikeyourfoodhot)

@@ -11,7 +11,9 @@ Főleg matematikai témakörökhöz tartozó tudnivalók.
 
 - Prímszámok, szita algoritmusok, prímtesztek
 - Prímtényezős felbontás, számok osztói
-- ...
+- Legnagyobb közös osztó, legkisebb közös többszörös
+- Modulo aritmetika
+- Euklideszi algoritmus, kiterjesztett euklideszi algoritmus
 
 ### Kombinatorika
 

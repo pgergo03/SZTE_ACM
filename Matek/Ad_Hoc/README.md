@@ -30,14 +30,16 @@ A logaritmus, exponenciális, hatványfüggvényeket és eze kombinációjával 
         - $\log_ba={\log_ca \over \log_cb}$
         - c++: `logba=log(a)/log(b)` vagy `logba=log2(a)/log2(b)` vagy `logba=log10(a)/log10(b)` 
 - számjegyek száma logaritmussal: `digits=floor(1+log10(x))`
-- megnézett feladat: [Kattis - Factstone Benchmark](https://open.kattis.com/problems/factstone)
+- megnézett feladat:
+[Kattis - Factstone Benchmark](https://open.kattis.com/problems/factstone)
 
 ### Grid:
 
 A grid felépítése nem szokványos, de így is olyan módon kéne eltárolni, hogy utána könnyű legyen vele a munka, ne legyen (sok) spec. eset stb.
 
 - pl.: hatszög-grid reprezentáció 2D tömbben
-- megnézett feladat: [Kattis - Identifying Map Tiles](https://open.kattis.com/problems/maptiles2)
+- megnézett feladat:
+[Kattis - Identifying Map Tiles](https://open.kattis.com/problems/maptiles2)
 
 ### Polinomok:
 
@@ -48,13 +50,15 @@ A polinomokkal érdemes tudni hatékonyan bánni, a velük kapcsolatos alap oper
 - másodfokú polinom zérushelyei
 - deriválás
 - szélsőértékek keresése
-- megnézett feladat: [Kattis - Stacking Curvy Blocks](https://open.kattis.com/problems/curvyblocks)
+- megnézett feladat:
+[Kattis - Stacking Curvy Blocks](https://open.kattis.com/problems/curvyblocks)
 
 ### Törtszámok:
 
 Egyes feladatoknál $számláló \over nevező$ alakban kell dolgozni a nem egész számokkal.
 
-- tört egyszerűsítés (gcd)
+- tört egyszerűsítés (gcd: ld. [Számelmélet](../Szamelmelet/README.md))
 - alapműveletek (+, -, *, /)
 - végtelen tizedestört -> "valódi tört" konverzió (ld. [Törtes trükk](tortes_trukk.md))
-- megnézett feladat: [Kattis - Dead Fraction](https://open.kattis.com/problems/deadfraction)
+- megnézett feladat:
+[Kattis - Dead Fraction](https://open.kattis.com/problems/deadfraction)
