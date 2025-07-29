@@ -6,5 +6,6 @@
 
 ## Hivatkozott könyvek/anyagok:
 
-- Competitive Programming 4 - Book 1&2 *(Halimi 4.1 & 4.2)*
+- Competitive Programming 4 - Book 1&2 (*Halimi 4.1 & 4.2*)
 - Algorithms for Competitive Programming [CP Algorithms - https://cp-algorithms.com/](https://cp-algorithms.com/)
+- Guide to Competitive Programming (*CSES könyv*, kis változat (nincs benne minden): [https://cses.fi/book/book.pdf](https://cses.fi/book/book.pdf))
