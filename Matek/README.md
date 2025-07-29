@@ -17,11 +17,16 @@ Főleg matematikai témakörökhöz tartozó tudnivalók.
 
 ### Kombinatorika
 
-*TBD*
+- Fibonacci számok
+- Binomiális együtthatók
+- Catalan-számok
+- Alap számlálási összefüggések
 
-### Valószínűség számítás
+### Valószínűségszámítás
 
-*TBD*
+- Alap összefüggések
+- Markov láncok
+- Randomizált algoritmusok
 
 ### Iterált függvényértékek ciklizálása
 
