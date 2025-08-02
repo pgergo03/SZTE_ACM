@@ -30,7 +30,8 @@ Főleg matematikai témakörökhöz tartozó tudnivalók.
 
 ### Iterált függvényértékek ciklizálása
 
-*TBD*
+- Ciklus keresés véges értékkészletű függvényeknél
+- Floyd-féle cikluskereső algoritmus
 
 ### Játékelmélet
 

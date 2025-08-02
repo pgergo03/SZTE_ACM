@@ -12,7 +12,7 @@
 - valószínűség $={jó \over összes}=1-{rossz \over összes}$
 - esemény, elemi esemény, komplementer esemény
 - valószínűségi változó, eloszlás, várható érték
-- megnézett feladat:
+- érdekes feladat:
 [Kattis - Good Coalition](https://open.kattis.com/problems/goodcoalition)
 
 ### Markov láncok
@@ -20,7 +20,7 @@
 - állapotok $+$ valószínűségi súlyozású állapotátmenetek $\rightarrow$ gráf
 - 1 állapotból kivezető élek összege 1
 - eloszlás: milyen valószínűséggel vagyunk az egyes állapotokban
-- megnézett feladat:
+- érdekes feladatok:
 [Kattis - Lost In The Woods](https://open.kattis.com/problems/lostinthewoods),
 [CSES - Moving Robots](https://cses.fi/problemset/task/1726)
 
@@ -35,5 +35,5 @@
         - *Dinamikus* (változó) futásidő, de mindig helyes válasszal áll meg
         - pl. tömb $k$. legkisebb elemének megkeresése amortizált $O(n)$-ben
         - Fő kérdések: "mennyire rossz a legosszabb eset? milyen gyakori? direktben függ az inputtól?" + ugyanez az átlagos esetre
-- megnézett feladat:
+- nagyon érdekes feladat:
 [CSES - Elevator Rides](https://cses.fi/problemset/task/1653)
