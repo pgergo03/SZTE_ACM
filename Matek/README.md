@@ -35,7 +35,8 @@ Főleg matematikai témakörökhöz tartozó tudnivalók.
 
 ### Játékelmélet
 
-*TBD*
+- Játékelméleti feladatok alapjai
+- Visszavezetés gráfos reprezentációra
 
 ### Mátrix hatványozás
 
