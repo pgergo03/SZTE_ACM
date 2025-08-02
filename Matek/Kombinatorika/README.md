@@ -78,4 +78,4 @@
 - egy $n$ elemű halmaznak $2^{n}$ részhalmaza van
 - $n$ különböző elemből $k$-t kiválasztani $C(n, k)$-féleképp lehet
 - megnézett feladat:
-[Kattis - Anagram Countng](https://open.kattis.com/problems/anagramcounting)
+[Kattis - Anagram Counting](https://open.kattis.com/problems/anagramcounting)
