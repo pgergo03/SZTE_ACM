@@ -7,7 +7,7 @@
 - $f: S \rightarrow S$ alakú, ahol $|S|$ véges, azaz...
     - 1 változós
     - A zárt értelmezési halmazból ugyanabba a zárt értelmezési halmazba képez
-- egy $f$ fgv. $x_0$-ból induló iterált értéksorozata: $\left\{ x_0, x_1=f(x), x_2=f(f(x)), x_3=f(f(f(x))), ...\right\}$
+- egy $f$ fgv. $x_0$-ból induló iterált értéksorozata: {$x_0, x_1=f(x), x_2=f(f(x)), x_3=f(f(f(x))), ...$}
 - a fenti függvényekre ez a sorozat mindig ciklizál
     - az értékkészlet véges $\rightarrow$ skatulya elv alapján belátható
 
