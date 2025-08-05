@@ -26,7 +26,7 @@
 
 ### Binomiális együtthatók
 
-- $C(n, k):= {n \choose k}={n! \over k!*(n-k)!}={n*(n-1)*...*(n-k+1) \over k*(k-1)*...*1}$
+- $C(n, k):={n \choose k}={n! \over k!\ast(n-k)!}={n \ast (n-1) \ast ... \ast (n-k+1) \over k \ast (k-1) \ast ... \ast 1}$
 - kiszámítási módok:
     - Pascal-háromszög $\rightarrow$ DP: $C(n, k)=C(n-1, k-1)+C(n-1, k)$
     - ha $n$ *viszonylag* fix, akkor elég lehet 1 sort kiszámolni, mert $C(n, k)=C(n, k-1) \ast (n-k+1)/k$
@@ -52,7 +52,7 @@
 
 ### Catalan-számok
 
-- $Cat(0)=1, Cat(n)=\sum_{i=1}^{n}Cat(i-1) \ast Cat(n-i)={C(2*n, n) \over n+1}$ ($C()$ itt a binom. együttható)
+- $Cat(0)=1, Cat(n)=\sum_{i=1}^{n}Cat(i-1) \ast Cat(n-i)={C(2 \ast n, n) \over n+1}$ ($C()$ itt a binom. együttható)
 - $1, 1, 2, 5, 14, 42, 132, 429, 1430, 4862, 16796, 58786, ...$
 - kiszámítása:
     - $[1, n]$-ből minden számra kell $\rightarrow O(n)$ bottom-up DP: $Cat(n+1)={4n+2 \over n+2} \ast Cat(n)$ vagy $Cat(n)={4n-2 \over n+1} \ast Cat(n-1)$
@@ -71,7 +71,7 @@
 - egy állapotban az egyszerre nem végrehajtható lépéseket összegezzük
 - ha egy állapoptban $n$ lépésünk van, a következőben pedig $m$, akkor $n*m$ kombinált lépésünk van összesen
 - $n$ különböző elem permutációinak száma $n!$
-    - ha ismétlődés is van, akkor ez $n! \over n_1!*n_2!*...*n_k!$, ahol $n_i$ az $i$. típusú elem darabszáma
+    - ha ismétlődés is van, akkor ez $n! \over n_1! \ast n_2! \ast ... \ast n_k!$, ahol $n_i$ az $i$. típusú elem darabszáma
 - k-permutáció: ha az $n$-ből csak $k$ elemet választunk, és az így kapható permutációk számát keressük, akkor ez $P(n, k)={n! \over (n-k)!}$
 - szita formula: $|A \cup B|=|A|+|B|-|A \cap B|$
     - több halmazra: *páratlan darab elem* $\rightarrow +$, *páros darab elem* $\rightarrow -$
