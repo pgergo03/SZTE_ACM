@@ -5,7 +5,7 @@
 #### Megjegyzés:
 
 - Itt nincs erre külön kitérés, de kombinatorika feladatoknál nagyon gyakran kell modulo aritmetikát használni.
-- A következőket olyan szemmel kell nézni, hogy pl. a $10^{15}$. Fibonacci számmal, vagy $\left(\begin{array}{} 10^{7} \\ 5*10^{6} \end{array} \right)$-nal is találkozhatunk 1-1 feladatban.
+- A következőket olyan szemmel kell nézni, hogy pl. a $10^{15}$. Fibonacci számmal, vagy $10^{7} \choose 5*10^{6}$-nal is találkozhatunk 1-1 feladatban.
 
 ### Fibonacci számok
 
@@ -26,7 +26,7 @@
 
 ### Binomiális együtthatók
 
-- $C(n, k):=\left(\begin{array}{c} n \\ k \end{array} \right)={n! \over k!*(n-k)!}={n*(n-1)*...*(n-k+1) \over k*(k-1)*...*1}$
+- $C(n, k):= {n \choose k}={n! \over k!*(n-k)!}={n*(n-1)*...*(n-k+1) \over k*(k-1)*...*1}$
 - kiszámítási módok:
     - Pascal-háromszög $\rightarrow$ DP: $C(n, k)=C(n-1, k-1)+C(n-1, k)$
     - ha $n$ *viszonylag* fix, akkor elég lehet 1 sort kiszámolni, mert $C(n, k)=C(n, k-1) \ast (n-k+1)/k$
