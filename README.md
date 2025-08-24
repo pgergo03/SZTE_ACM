@@ -2,7 +2,7 @@
 
 - Témavázlat és példakód gyűjtemény főleg ACM/ICPC felkészüléshez.
 - Legjobb megítélés szerint felépítve
-- Az SZTE-s ACM felkészülés menetével práhuzamosan bővítve (kb.)
+- Az SZTE-s ACM felkészülés menetével párhuzamosan bővítve (kb.)
 
 ## Hivatkozott könyvek/anyagok:
 
