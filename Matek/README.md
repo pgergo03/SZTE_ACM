@@ -38,9 +38,12 @@ Főleg matematikai témakörökhöz tartozó tudnivalók.
 - Játékelméleti feladatok alapjai
 - Visszavezetés gráfos reprezentációra
 
-### Mátrix hatványozás
+### Gyors hatványozás, Mátrix hatványozás
 
-*TBD*
+- Hatékony hatványozás
+- Mátrix szorzás
+- Hatékony mátrix hatványozás
+- *"Lineáris ismétlődésű sorozatok"*
 
 ### Nehezebb/Ritkább finomságok
 
