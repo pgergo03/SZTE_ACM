@@ -47,50 +47,49 @@ a^b=
     
     - *"Lineáris ismétlődésű sorozatok"* $k$. elemének kiszámítása
         - Ezek az $a(k+1)=c_1a(k)+c_2a(k-1)+...+c_na(k+1-n)+c_0$ alakú sorozatok
-        - Ez a képlet átalakítható mátrixos alakra a következő módon ($n=6$):
-
-        ```math
-        \left(
-            \begin{matrix}
-            1 & 0 & 0 & 0 & 0 & 0 & 0 \\
-            0 & 0 & 1 & 0 & 0 & 0 & 0 \\
-            0 & 0 & 0 & 1 & 0 & 0 & 0 \\
-            0 & 0 & 0 & 0 & 1 & 0 & 0 \\
-            0 & 0 & 0 & 0 & 0 & 1 & 0 \\
-            0 & 0 & 0 & 0 & 0 & 0 & 1 \\
-            c_0 & c_6 & c_5 & c_4 & c_3 & c_2 & c_1 \\
-            \end{matrix}
-        \right)
-        \ast
-        \left(
-            \begin{matrix}
-            1 \\
-            a(k-5) \\
-            a(k-4) \\
-            a(k-3) \\
-            a(k-2) \\
-            a(k-1) \\
-            a(k) \\
-            \end{matrix}
-        \right)
-        =
-        \left(
-            \begin{matrix}
-            1 \\
-            a(k-4) \\
-            a(k-3) \\
-            a(k-2) \\
-            a(k-1) \\
-            a(k) \\
-            a(k+1) \\
-            \end{matrix}
-        \right)
-        ```
-
+        - Ez a képlet átalakítható mátrixos alakra a következő módon ($n=6$)
         - (ha $c_0=0$, akkor az 1. sor és oszlop elhagyható)
         - Tipikus ilyen sorozatok:
             - Fibonacci sorozat és variánsai
             - *"Hányféleképp kaphatunk egy adott számot kockadobások sorozatának összegeként"*
+
+```math
+\left(
+    \begin{matrix}
+    1 & 0 & 0 & 0 & 0 & 0 & 0 \\
+    0 & 0 & 1 & 0 & 0 & 0 & 0 \\
+    0 & 0 & 0 & 1 & 0 & 0 & 0 \\
+    0 & 0 & 0 & 0 & 1 & 0 & 0 \\
+    0 & 0 & 0 & 0 & 0 & 1 & 0 \\
+    0 & 0 & 0 & 0 & 0 & 0 & 1 \\
+    c_0 & c_6 & c_5 & c_4 & c_3 & c_2 & c_1 \\
+    \end{matrix}
+\right)
+\ast
+\left(
+    \begin{matrix}
+    1 \\
+    a(k-5) \\
+    a(k-4) \\
+    a(k-3) \\
+    a(k-2) \\
+    a(k-1) \\
+    a(k) \\
+    \end{matrix}
+\right)
+=
+\left(
+    \begin{matrix}
+    1 \\
+    a(k-4) \\
+    a(k-3) \\
+    a(k-2) \\
+    a(k-1) \\
+    a(k) \\
+    a(k+1) \\
+    \end{matrix}
+\right)
+```
 
 - Megnézett feladatok: 
 [Kattis - Immortal Porpoises](https://open.kattis.com/problems/porpoises),
