@@ -47,4 +47,13 @@ Főleg matematikai témakörökhöz tartozó tudnivalók.
 
 ### Nehezebb/Ritkább finomságok
 
-*TBD*
+*TODO*
+- Gyors polinom szorzás, konvolúció, FFT/NTT
+- Gyors prímtényezős felbontás (Pollard rho algoritmus)
+- Kínai maradéktétel
+- Lucas tétel
+- Még több kombinatorikai formula
+- Kombinatorikus játékelmélet (Nim és társai)
+- Egyenletrendszer megoldás Gauss eliminációval
+- Függvények multiplikativitása, Dirichlet konvolúció, Dirichlet inverz, Möbius függvény, Möbius inverzió
+- ...
