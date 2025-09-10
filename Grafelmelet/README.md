@@ -8,7 +8,9 @@ Gráfokhoz kapcsolódó témakörök, feladattípusok.
 
 - Gráf alapok
 - irányítatlan/irányított gráf
+- súlyozatlan/súlyozott gráf
 - éllista, szomszédsági mátrix, szomszédsági lista/halmaz
+- implicit gráfok
 
 ### 2. Gráfbejárás alap típusai
 
