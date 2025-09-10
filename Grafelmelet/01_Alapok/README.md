@@ -20,6 +20,9 @@
 - egy egyszerű gráf **teljes**, ha minden csúcspár össze van kötve közvetlenül
 - egy egyszerű gráf **reguláris**, ha minden csúcs fokszáma megegyezik
 
+- Megnézett feladat: 
+[Kattis - Chopping Wood](https://open.kattis.com/problems/chopwood)
+
 <br>
 
 - **Séta**: Egy olyan $a_1 \rightarrow a_2 \rightarrow ... \rightarrow a_k$ csúcssorozat, hogy
@@ -37,4 +40,30 @@
 
 Általános, mert ezek *technikailag* bármilyen gráf reprezentálására használhatók. Ez nem jelenti viszont azt, hogy pl. egy teljes bináris fát is így érdemes ábrázolni.
 
+- éllista
+    - általában az input van megadva így, de a számítások során is jól jön néha
+    - pl. $(a, b)$-k vagy $(a, b, w(eight) )$-k tömbje
+- szomszédsági mátrix
+    - bináris/súlyozott mátrix, ahol $M(i, j) \ne 0 \Longleftrightarrow (i \rightarrow j) \in E$
+    - közepes méretű gráfokig használható (~$|V| \le 5000$)
+        - ilyenkor minél sűrűbb, annál hatékoyabb vele dolgozni
+    - könnyű éleket módosítani
+- szomszédsági lista/halmaz
+    - minden csúcshoz 1-1 külön tárolóban tartjuk számon a kimenő éleket
+    - nagy ritka gráfokhoz is használható
+    - módosítani költségesebb, macerásabb lehet
+
+<br>
+
+- Megnézett feladat: 
+[Kattis - Ab Initio](https://open.kattis.com/problems/abinitio),
+[Kattis - Travel the Skies](https://open.kattis.com/problems/traveltheskies)
+
 ### Implicit gráfok:
+
+- a gráfokat nem mindig kell direktben felépíteni
+- amikor a feladat egy szabályokkal jól meghatározott gráfot tartalmaz, akkor "elég ezen szabályok mentén kódolni"
+- pl.:
+    - lépés grid mentén szomszédos mezők között
+    - lépés valamilyen bábuval sakktáblán
+    - a csúcsok az $[1, N]$, egész számok, és $(a \rightarrow b) \in E \Longleftrightarrow 0<b-a<C \space (\text{ahol }C>1)$
