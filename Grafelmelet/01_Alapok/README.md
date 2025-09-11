@@ -55,8 +55,8 @@
 
 <br>
 
-- Megnézett feladat: 
-[Kattis - Ab Initio](https://open.kattis.com/problems/abinitio),
+- Megnézett feladatok: 
+[Kattis - Ab Initio](https://open.kattis.com/problems/abinitio), 
 [Kattis - Travel the Skies](https://open.kattis.com/problems/traveltheskies)
 
 ### Implicit gráfok:

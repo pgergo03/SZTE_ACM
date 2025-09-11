@@ -2,8 +2,6 @@
 
 Gráfokhoz kapcsolódó témakörök, feladattípusok.
 
-*TODO:*
-
 ### 1. Gráfok felépítése, alap típusai, gráfreprezentációk
 
 - Gráf alapok
@@ -14,9 +12,11 @@ Gráfokhoz kapcsolódó témakörök, feladattípusok.
 
 ### 2. Gráfbejárás alap típusai
 
+- gráfbejárási módok alapja
 - mélységi belyárás (DFS)
 - szélességi belyárás (BFS)
-- flood fill
+*TODO:*
+- bejárási éltípusok
 
 ### 3. Speciális gráftípusok
 
@@ -28,7 +28,7 @@ Gráfokhoz kapcsolódó témakörök, feladattípusok.
 
 ### 4. Gráfok tulajdonságai
 
-- összefüggő komponensek (irányítatlan)
+- összefüggő komponensek, flood fill (irányítatlan)
 - topologikus rendezés (DAG)
 - körkeresés
 - elvágóélek/hidak, elvágópontok
