@@ -15,7 +15,6 @@ Gráfokhoz kapcsolódó témakörök, feladattípusok.
 - gráfbejárási módok alapja
 - mélységi belyárás (DFS)
 - szélességi belyárás (BFS)
-*TODO:*
 - bejárási éltípusok
 
 ### 3. Speciális gráftípusok
@@ -26,14 +25,18 @@ Gráfokhoz kapcsolódó témakörök, feladattípusok.
 - utódgráf
 - Euler gráf
 
+*TODO:*
+
 ### 4. Gráfok tulajdonságai
 
 - összefüggő komponensek, flood fill (irányítatlan)
 - topologikus rendezés (DAG)
+- utak száma (DAG)
 - körkeresés
 - elvágóélek/hidak, elvágópontok
 - kétszeresen összefüggő komponensek
 - erősen összefüggő komponensek (irányított)
+- Euler vonal
 - Euler részgráfok
 
 ### 5. Minimális feszítőfa
@@ -45,6 +48,7 @@ Gráfokhoz kapcsolódó témakörök, feladattípusok.
 
 - súlyozatlan gráf (BFS)
 - 0-1 gráf (0-1 BFS)
+- DAG (DP)
 - súlyozott gráf (Dijkstra, Bellman-Ford)
 - negatív összsúlyú körök felismerése
 - legrövidebb út több kezdőpont egyikéből

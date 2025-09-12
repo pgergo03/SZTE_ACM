@@ -1,3 +1,5 @@
+# Gráfbejárás alap típusai
+
 ### Ide tartozó anyagrész:
 
 **Halimi 4.1:** 4.2.1-4.2.3. fejezet, 195-197. oldal

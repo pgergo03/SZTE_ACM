@@ -1,3 +1,5 @@
+# Gráfok felépítése, alap típusai, gráfreprezentációk
+
 ### Ide tartozó anyagrész:
 
 **Halimi 4.1:** 2.4.1. fejezet, 94-98. oldal
@@ -27,14 +29,19 @@
 
 - **Séta**: Egy olyan $a_1 \rightarrow a_2 \rightarrow ... \rightarrow a_k$ csúcssorozat, hogy
     - $\forall i, 1 \le i \lt k: (a_i \rightarrow a_{i+1}) \in E$, azaz az egymást követő csúcsok között fut közvetlen él
-    - minden $E$-beli élen max. egyszer megyünk végig
-    - ez **kör(séta)**, ha $a_1 = a_k$
 
-- **Út**: Egy olyan $a_1 \rightarrow a_2 \rightarrow ... \rightarrow a_k$ csúcssorozat, hogy
-    - a sorozat séta
+- **Vonal**: Egy olyan séta, hogy
+    - minden $E$-beli élen max. egyszer megyünk végig
+    - ez **körvonal**, ha $a_1 = a_k$
+
+- **Út**: Egy olyan séta/vonal, hogy
     - $\forall i, j,  i \ne j: a_i \ne a_j$, azaz minden csúcsba max. egyszer lépünk
 
 - **Kör(út)**: Olyan út, ahol még megengedjük, hogy az utolsó lépésben visszalépjünk a kezdőpontba
+
+<br>
+
+- egy gráf **összefüggő**, ha bármely csúcsból bármely csúcsba vezet benne út
 
 ### Általános gráf reprezentációk:
 
