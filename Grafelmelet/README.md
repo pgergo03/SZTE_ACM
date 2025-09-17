@@ -25,12 +25,13 @@ Gráfokhoz kapcsolódó témakörök, feladattípusok.
 - utódgráf
 - Euler gráf
 
-*TODO:*
-
 ### 4. Gráfok tulajdonságai
 
 - összefüggő komponensek, flood fill (irányítatlan)
 - topologikus rendezés (DAG)
+
+*TODO:*
+
 - utak száma (DAG)
 - körkeresés
 - elvágóélek/hidak, elvágópontok
