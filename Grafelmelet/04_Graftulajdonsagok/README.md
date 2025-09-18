@@ -60,9 +60,22 @@
 [Kattis - Conservation](https://open.kattis.com/problems/conservation), 
 [Kattis - Pick up sticks](https://open.kattis.com/problems/pickupsticks)
 
-*TODO:*
-
 ### Utak száma:
+
+- "Hány különböző módon juthatunk el $x$-ből $y$-ba?"
+- DAG esetén minden csúcspárra véges
+- egyébként ha van min. 1 olyan út, ami érint valamilyen körbe tartozó élt, akkor $\infty$
+- megoldás DAG-ra: DP
+    - legyen $E(i)$ az $x$-ből $i$-be vezető utak száma
+    - kezdetben $E(x) := 1$, a többi érték $0$
+    - a gráf topologikus  rendezése mentén véve az $i$ indexeket minden $(i \rightarrow j)$ élre adjuk hozzá $E(j)$-hez $E(i)$-t
+    - a válasz $E(y)$ lesz
+
+<br>
+
+- Gyakorlófeladatok: 
+[Kattis - Robots on a Grid](https://open.kattis.com/problems/robotsonagrid), 
+[Kattis - Running Steps](https://open.kattis.com/problems/runningsteps)
 
 ### Körkeresés:
 
