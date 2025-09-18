@@ -52,7 +52,7 @@
     - pl. $(a, b)$-k vagy $(a, b, w(eight) )$-k tömbje
 - szomszédsági mátrix
     - bináris/súlyozott mátrix, ahol $M(i, j) \ne 0 \Longleftrightarrow (i \rightarrow j) \in E$
-    - közepes méretű gráfokig használható (~$|V| \le 5000$)
+    - közepes méretű gráfokig használható (~ $|V| \le 5000$)
         - ilyenkor minél sűrűbb, annál hatékoyabb vele dolgozni
     - könnyű éleket módosítani
 - szomszédsági lista/halmaz
