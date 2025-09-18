@@ -29,11 +29,9 @@ Gráfokhoz kapcsolódó témakörök, feladattípusok.
 
 - összefüggő komponensek, flood fill (irányítatlan)
 - topologikus rendezés (DAG)
-
-*TODO:*
-
 - utak száma (DAG)
 - körkeresés
+- páros gráf ellenőrzés
 - elvágóélek/hidak, elvágópontok
 - kétszeresen összefüggő komponensek
 - erősen összefüggő komponensek (irányított)

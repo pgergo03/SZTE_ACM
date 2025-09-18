@@ -2,7 +2,7 @@
 
 ### Ide tartozó anyagrész:
 
-**Halimi 4.1:** 4.2.4-4.2.11. fejezet, 198-210. oldal 
+**Halimi 4.1:** 4.2.4-4.2.11. fejezet, 198-210. oldal és 4.6. fejezet, 249-266. oldal
 
 ### Összefüggő komponensek:
 
@@ -75,9 +75,38 @@
 
 - Gyakorlófeladatok: 
 [Kattis - Robots on a Grid](https://open.kattis.com/problems/robotsonagrid), 
-[Kattis - Running Steps](https://open.kattis.com/problems/runningsteps)
+[Kattis - Running Steps](https://open.kattis.com/problems/runningsteps), 
+[Kattis - Mountain Scenes](https://open.kattis.com/problems/scenes)
 
 ### Körkeresés:
+
+- irányítatlan gráf
+    - a kör jelenlétének ellenőrzése a komponensenkénti fokszámösszegek vizsgálatával eldönthető
+    - ha kell is találni egy vagy több kört, akkor egy kiegészített DFS jól tud működni
+        - külön tároljuk minden csúcsra, hogy honnan léptünk oda (szülő)
+        - ha visszaélt találunk (olyan csúcsba lépnénk, ahol már jártunk és az nem a szülő csúcs), akkor kört találtunk
+        - ekkor a kört alkotó csúcsok könnyen kinyerhetők a szülők menti visszalépkedéssel: addig lépkedünk, míg el nem érjük a visszaél másik végét
+        - irányítatlan DFS-nél csak fa és visszaélek fordulnak elő, így könnyű azonosítani a visszaéleket
+- irányított gráf
+    - ez kicsivel komplikáltabb
+    - itt DFS-nél már előre mutató és keresztélek is lehetnek, így meg kell tudni különböztetni a visszaéleket ezektől (pl. extra bool flaggel)
+    - ezen kívül viszont ua., mint az irányítatlan eset (nyilván a körnek itt most van iránya is *DUH*)
+
+<br>
+
+- Gyakorlófeladatok: 
+[Kattis - Running MoM](https://open.kattis.com/problems/runningmom), 
+[UVA - Robot Motion](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=13&page=show_problem&problem=1057)
+
+### Páros gráf ellenőrzés:
+
+
+
+<br>
+
+- Gyakorlófeladatok: 
+[Kattis - Hoppers](https://open.kattis.com/problems/hoppers), 
+[Kattis - Molekule](https://open.kattis.com/problems/molekule)
 
 ### Elvágóélek/Hidak, elvágópontok:
 

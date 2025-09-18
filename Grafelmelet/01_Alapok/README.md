@@ -2,7 +2,7 @@
 
 ### Ide tartozó anyagrész:
 
-**Halimi 4.1:** 2.4.1. fejezet, 94-98. oldal
+**Halimi 4.1:** 2.4.1. fejezet, 94-98. oldal<br>
 **CSES könyv:** 7.1 fejezet, 78-83. oldal
 
 ### Gráf alapfogalmak:
