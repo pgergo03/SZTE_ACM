@@ -100,13 +100,20 @@
 
 ### Páros gráf ellenőrzés:
 
-
+- Ha egy (irányítatlan) gráf páros gráf, akkor 2-színezhető (a csúcsai kiszínezhetők 2 színnel úgy, hogy a szomszédos csúcsoknak különböző színük van)
+- Az ellenőrzés úgy a legegyszerűbb, hogy megpróbáljuk 2-színezni a gráfot":
+    - pl. egy DFS/BFS során a fa élek mentén alternáljuk a színeket
+    - a nem fa éleknél ellenőrizzük, hogy különböző színűek-e a csúcsok
+    - ha nem találunk hibát, akkor a bejárás végére van egy teljes 2-színezésünk $\rightarrow$ a gráf páros
+    - egyébként biztosan nem páros a gráf, mert a 2 ugyanolyan színű szomszédos csúcs része egy páratlan hosszú körnek, amit nyilván nem tudunk 2-színezni
 
 <br>
 
 - Gyakorlófeladatok: 
 [Kattis - Hoppers](https://open.kattis.com/problems/hoppers), 
 [Kattis - Molekule](https://open.kattis.com/problems/molekule)
+
+*TODO:*
 
 ### Elvágóélek/Hidak, elvágópontok:
 
