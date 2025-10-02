@@ -53,6 +53,8 @@
         - csak akkor rakjuk be a BFS sorba, ha ez a szám eléri a csúcs befokát
         - hosszabb kód, de ez a megoldás flexibilisebb (pl. nem feltétlen kell sima sort használni, lehet prioritási sor is)
 
+- [Vizualizáció](https://visualgo.net/en/dfsbfs)
+
 <br>
 
 - Gyakorlófeladatok: 
@@ -106,6 +108,8 @@
     - a nem fa éleknél ellenőrizzük, hogy különböző színűek-e a csúcsok
     - ha nem találunk hibát, akkor a bejárás végére van egy teljes 2-színezésünk $\rightarrow$ a gráf páros
     - egyébként biztosan nem páros a gráf, mert a 2 ugyanolyan színű szomszédos csúcs része egy páratlan hosszú körnek, amit nyilván nem tudunk 2-színezni
+
+- [Vizualizáció](https://visualgo.net/en/dfsbfs)
 
 <br>
 

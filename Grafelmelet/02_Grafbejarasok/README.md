@@ -4,6 +4,8 @@
 
 **Halimi 4.1:** 4.2.1-4.2.3. fejezet, 195-197. oldal
 
+**[Vizualizáció](https://visualgo.net/en/dfsbfs)**
+
 Példakód:
 
 - [DFS-BFS minta (dfs_bfs.cpp)](dfs_bfs.cpp)

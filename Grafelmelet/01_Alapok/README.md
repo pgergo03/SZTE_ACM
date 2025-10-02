@@ -60,6 +60,8 @@
     - nagy ritka gráfokhoz is használható
     - módosítani költségesebb, macerásabb lehet
 
+- [Vizualizáció](https://visualgo.net/en/graphds)
+
 <br>
 
 - Megnézett feladatok: 
