@@ -117,13 +117,71 @@
 [Kattis - Hoppers](https://open.kattis.com/problems/hoppers), 
 [Kattis - Molekule](https://open.kattis.com/problems/molekule)
 
-*TODO:*
+### Elvágóélek/Hidak, elvágópontok, kétszeresen összefüggő komponensek:
 
-### Elvágóélek/Hidak, elvágópontok:
+- **Elvágóél/Elvágópont:** olyan él/csúcs, amit törölve a gráf nem marad összefüggő (2 vagy több komponensre esik szét)
+- Ezek egy módosított DFS-sel megkereshetők
+    - minden csúcshoz eltárolunk:
+        - elérési időt (~ sorszám, hogy hanyadikként léptünk az adott csúcsba a bejárás során)
+        - $l$ értéket: az adott csúcs rész-feszítőfájában + max. 1 visszaél felhasználásával elérhető legkisebb elérési időt
+            - tehát az adott csúcstól elindulhatunk lefele a fa éleken + 1 visszaélen "kiugorhatunk" a részfából, de akkor meg kell állnunk
+            - az így elérhető csúcsok elérési idejei közül vesszük a minimálisat
+    - adott csúcs $l$ értéke 2-féle irányból jöhet
+        - fa él felől: Az egyik gyerek részfájában találtunk rekurzívan egy $l$ értéket. Ha ez jobb, mint az eddigi legjobbunk a jelenlegi csúcsban, akkor átvesszük ide is.
+        - visszaél felől: Találtunk egy visszaélt, ami kivezet az adott gyükerű részfából (konkrétan a gyökérből ugrik ki). Ha a részfán kívüli csúcs elérési ideje kisebb, mint a jelenlegi $l$ érték, akkor átvesszük, mint új $l$ értéket.
+    - elvágóél feltétel: $u \rightarrow v$ elvágóél, ha $elér(u) < l(v)$
+    - elvágópont feltétel: $u$ elvágópont, ha van olyan $v$ gyereke a feszítőfában, melyre $elér(u) \le l(v)$
+        - kivétel: a gyökércsúcs akkor elvágópont, ha a feszítőfában $\ge 2$ gyereke van
 
-### Kétszeresen összefüggő komponensek:
+<br>
 
-### Erősen összefüggő komponensek:
+- **Kétszeresen összefüggő komponens:** olyan maximális komponens, ahol a csúcsok között:
+    - nem vezet elvágóél vagy
+    - nincs elvágópont
+- Az elvágóélek/elvágópontok megléte esetén már nem bonyolult ezeket meghatározni
+    - pl. egy bejárás során letiltjuk azt, hogy az elvágóéleket használjuk / az elvágópontokba lépjünk
+
+<br>
+
+- Gyakorlófeladatok: 
+[Kattis - Cave Exploration](https://open.kattis.com/problems/caveexploration), 
+[UVa - Doves and bombs](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=1706)
+[Kattis - Intercept](https://open.kattis.com/problems/intercept)
+
+### Erősen összefüggő komponensek (SCC-k):
+
+- Irányított gráfokra értelmezett. Olyan maximális csúcshalmaz, ahol az irányított élek mentén bármely csúcsból bármely másik csúcsba el lehet jutni.
+- Ha az SCC-ket 1-1 csúcsba "tömörítjük", az eredmény gráf egy DAG lesz. Ezt "condensed graph"-nak is szokták hívni.
+- 2-féle algoritmus is van a megkeresésükre:
+    - Kosajaru algoritmus:
+        - 2 fázisú módszer
+        1. fázis:
+            - járjuk be DFS-sel az összes csúcsot és tároljuk el az elhagyási időket (~ sorszám, hogy hanyadikként fejezzük be az adott csúcs kiterjesztését)
+                - addig kezdünk új bejárásokat, míg be nem jártuk az összes csúcsot (mint a DFS-alapú toposort-nál)
+        2. fázis:
+            - vegyük a csúcsok elhagyási idő szerint csökkenő sorrendjét és próbáljunk bejárást indítani mindegyikből egymás után
+            - Ha adott csúcsban még nem jártunk, akkor indítsunk belőle egy olyan bejárást, ahol **visszafele haladunk az éleken**. Az elért csúcsok erősen összefüggő komponenst fognak adni, azaz 1-1 ilyen bejárás 1-1 SCC-t határoz meg.
+        - Miért működik?
+            - Az SCC-ket komponensen belüli elérhetőség szempontjából nem befolyásolja az élek megfordítása
+            - A fordított elhagyási sorrend "az SCC-ket topologikus sorrendbe teszi"
+            - Az élek megfordítása kizárja, hogy átlépjünk egy rákövető SCC-be, megelőzőbe pedig szintén nem tudunk visszalépni, mert már bejártuk egy korábbi bejárással.
+
+    - Tarjan algoritmus:
+        - az elvágóélek/elvágópontok kereséséhez hasonló elven működik
+        - DFS során eltároljuk:
+            - elérési idő (ua., mint elvágóéleknél)
+            - az épp aktuális csúcsot egy verem tetejére tesszük
+            - számon tartjuk a már elért, de még nem SCC-be pakolt csúcsok halmazát (+1 flag minden csúcshoz)
+            - itt is használjuk az $l$ értéket, de más szabállyal frissítjük
+                - itt az $l$ érték a legkisebb még nem SCC-be pakolt, az adott csúcsból elérhető legkisebb elhagyási időt jelenti
+        - az $l$ értéket egy szomszéd csak akkor frissítheti, ha még nem tartozik SCC-be (a +1 flag még aktív)
+        - ha a DFS visszalépés előtt $elér(u) = l(u)$, akkor SCC-t találtunk
+            - ekkor elkezdjük kiüríteni a vermet addig, amíg $u$-t ki nem vettük (emellett a +1 flag-et is kikapcsoljuk ezekben a csúcsokban)
+            - az ekkor kivett csúcsok alkotnak 1 SCC-t
+
+<br>
+
+- Gyakorlófeladatok: *TODO*
 
 ### Euler vonal:
 
