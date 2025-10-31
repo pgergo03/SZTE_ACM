@@ -143,6 +143,7 @@
 
 <br>
 
+- Példakód: [cut_edgeccut_vertex.cpp](./cut_edge&cut_vertex.cpp)
 - Gyakorlófeladatok: 
 [Kattis - Cave Exploration](https://open.kattis.com/problems/caveexploration), 
 [UVa - Doves and bombs](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=1706)
