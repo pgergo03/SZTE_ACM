@@ -143,6 +143,7 @@
 
 <br>
 
+- [Vizualizáció](https://visualgo.net/en/dfsbfs)
 - Példakód: [cut_edgeccut_vertex.cpp](./cut_edge&cut_vertex.cpp)
 - Gyakorlófeladatok: 
 [Kattis - Cave Exploration](https://open.kattis.com/problems/caveexploration), 
@@ -182,7 +183,13 @@
 
 <br>
 
-- Gyakorlófeladatok: *TODO*
+- [Vizualizáció](https://visualgo.net/en/dfsbfs)
+- Gyakorlófeladatok: 
+[Kattis - Cantina of Babel](https://open.kattis.com/problems/cantinaofbabel), 
+[Kattis - Dominos](https://open.kattis.com/problems/dominos), 
+[Kattis - Proving Equivalences](https://open.kattis.com/problems/equivalences)
+
+*TODO:*
 
 ### Euler vonal:
 
