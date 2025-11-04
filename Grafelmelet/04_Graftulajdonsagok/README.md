@@ -6,7 +6,7 @@
 
 ### Összefüggő komponensek:
 
-- **Irányítatlan gráf összefüggő egy komponense**: olyan maximális csúcshalmaz, melyen belül bármely csúcs elérhető bármely másik csúcsból
+- **Irányítatlan gráf egy összefüggő komponense**: olyan maximális csúcshalmaz, melyen belül bármely csúcs elérhető bármely másik csúcsból
 - megkeresésük:
     - számon tarjuk, hogy mely csúcsokat látogattuk már meg (kezdetben semelyiket)
     - amíg van nem látogatott csúcs, ezek közül 1 tetszőlegesből indítunk egy bejárást (pl. DFS/BFS)
@@ -189,8 +189,46 @@
 [Kattis - Dominos](https://open.kattis.com/problems/dominos), 
 [Kattis - Proving Equivalences](https://open.kattis.com/problems/equivalences)
 
-*TODO:*
-
 ### Euler vonal:
+
+- Olyan vonal, ami a gráf összes élén átmegy (pontosan 1 alkalommal $\leftarrow$ vonal def.)
+- Ha a kezdeti és végső csúcs megegyezik, akkor Euler körvonalról beszélünk $\rightarrow$ a gráf Euler gráf
+
+<br>
+
+- Létezik-e?
+    - fokszámok és összefüggőség vizsgálatával eldönthető
+    - irányítatlan eset:
+        - vonal: 2 csúcs fokszáma páratlan, a többié páros
+        - kör: minden csúcs fokszáma páros
+        - a gráf összefüggő kell legyen (*DUH*)
+    - irányított eset:
+        - vonal: 1 csúcsnál $\text{kifok}-\text{befok}=1$, 1 csúcsnál $\text{kifok}-\text{befok}=-1$, a többinél $\text{kifok}=\text{befok}$
+        - kör: minden csúcsnál $\text{kifok}=\text{befok}$
+        - a gráf erősen összefüggő kell legyen
+            - de ha a fokszám feltételek teljesülnek, akkor ezt elég csak irányítatlan összefüggőséget vizsgálni
+
+- Ha létezik, hogy adjuk meg? $\rightarrow$ Hierholzer algoritmus
+    - DFS-szerű bejárást használunk, de egy csúcsba most többször is léphetünk, viszont minden élt max. 1-szer használhatunk
+    - minden élre számontartjuk, hogy használtuk-e már (irányított gráfnál nem szükséges)
+    - minden csúcsra számontartjuk, hogy melyik a legelső él, amin keresztül még nem próbáltunk kilépni a csúcsból
+    - az épp aktuális csúcs indexét visszalépéskor mindig egy verembe tesszük
+
+    <br>
+
+    - egy alkalmas kezdőcsúcsból indulunk (kör esetén mindegy melyik csúcs, vonal esetén páratlan fokkszámú / nagyobb befok, mint kifok)
+    - először találunk egy kört / eljutunk a vonal másik végpontjába
+        - minden közbülső pontnál 2 élt / 1 be- és 1 kiélt használunk el
+        - így csak ott akadhatunk el, ahol páratlan sok használatlan él van / több használatlan beél van, mint kiél
+        - az 1. lépés után:
+            - kör esetén csak a kezdőcsúcs lesz ilyen $\rightarrow$ csak itt akadhatunk el $\rightarrow$ tényleg kört találunk
+            - vonal esetén csak a végcsúcs lesz ilyen $\rightarrow$ csak itt akadhatunk el $\rightarrow$ tényleg a másik végpontba jutunk
+    - ezután elkezdünk visszafele lépkedni és ha találunk olyan csúcsot, amiből még tovább tudunk lépni, akkor innen újrakezdjük a bejárást, amíg el nem akadunk újra
+        - itt már garantált, hogy ugyanabban a csúcsban fogunk elakadni, mint ahonnan "újrakezdtük"
+    - ez a vissza lépkedés & újra kiterjesztés megy addig, míg vissza ne érünk a kezdőcsúcsba úgy, hogy már nem tudunk onnan "újrakezdéssel" kilépni
+    - a folyamat végén a verem tetejétől az alja fele fogja tartalmazni az Euler kört/vonalat
+        - (Adott esetben a fordított sorrend is valid lehet. Ez gráftípus és feladatfüggő.)
+
+- Gyakorlófeladatok: *TODO:*
 
 ### Euler részgráfok:
