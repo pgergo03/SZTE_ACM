@@ -175,7 +175,7 @@
             - az épp aktuális csúcsot egy verem tetejére tesszük
             - számon tartjuk a már elért, de még nem SCC-be pakolt csúcsok halmazát (+1 flag minden csúcshoz)
             - itt is használjuk az $l$ értéket, de más szabállyal frissítjük
-                - itt az $l$ érték a legkisebb még nem SCC-be pakolt, az adott csúcsból elérhető legkisebb elhagyási időt jelenti
+                - itt az $l$ érték a legkisebb még nem SCC-be pakolt, az adott csúcsból elérhető elérési időt jelenti
         - az $l$ értéket egy szomszéd csak akkor frissítheti, ha még nem tartozik SCC-be (a +1 flag még aktív)
         - ha a DFS visszalépés előtt $elér(u) = l(u)$, akkor SCC-t találtunk
             - ekkor elkezdjük kiüríteni a vermet addig, amíg $u$-t ki nem vettük (emellett a +1 flag-et is kikapcsoljuk ezekben a csúcsokban)
@@ -184,6 +184,7 @@
 <br>
 
 - [Vizualizáció](https://visualgo.net/en/dfsbfs)
+- Példakód: [tarjan.cpp](./tarjan.cpp)
 - Gyakorlófeladatok: 
 [Kattis - Cantina of Babel](https://open.kattis.com/problems/cantinaofbabel), 
 [Kattis - Dominos](https://open.kattis.com/problems/dominos), 
@@ -192,7 +193,7 @@
 ### Euler vonal:
 
 - Olyan vonal, ami a gráf összes élén átmegy (pontosan 1 alkalommal $\leftarrow$ vonal def.)
-- Ha a kezdeti és végső csúcs megegyezik, akkor Euler körvonalról beszélünk $\rightarrow$ a gráf Euler gráf
+- Ha a kezdeti és végső csúcs megegyezik, akkor Euler kör(vonal)ról beszélünk $\rightarrow$ a gráf Euler gráf
 
 <br>
 
@@ -206,7 +207,7 @@
         - vonal: 1 csúcsnál $\text{kifok}-\text{befok}=1$, 1 csúcsnál $\text{kifok}-\text{befok}=-1$, a többinél $\text{kifok}=\text{befok}$
         - kör: minden csúcsnál $\text{kifok}=\text{befok}$
         - a gráf erősen összefüggő kell legyen
-            - de ha a fokszám feltételek teljesülnek, akkor ezt elég csak irányítatlan összefüggőséget vizsgálni
+            - de ha a fokszám feltételek teljesülnek, akkor elég csak irányítatlan összefüggőséget vizsgálni
 
 - Ha létezik, hogy adjuk meg? $\rightarrow$ Hierholzer algoritmus
     - DFS-szerű bejárást használunk, de egy csúcsba most többször is léphetünk, viszont minden élt max. 1-szer használhatunk
@@ -216,19 +217,52 @@
 
     <br>
 
-    - egy alkalmas kezdőcsúcsból indulunk (kör esetén mindegy melyik csúcs, vonal esetén páratlan fokkszámú / nagyobb befok, mint kifok)
+    - egy alkalmas kezdőcsúcsból indulunk (kör esetén mindegy melyik csúcs, vonal esetén páratlan fokszámú / nagyobb befok, mint kifok)
     - először találunk egy kört / eljutunk a vonal másik végpontjába
         - minden közbülső pontnál 2 élt / 1 be- és 1 kiélt használunk el
         - így csak ott akadhatunk el, ahol páratlan sok használatlan él van / több használatlan beél van, mint kiél
         - az 1. lépés után:
             - kör esetén csak a kezdőcsúcs lesz ilyen $\rightarrow$ csak itt akadhatunk el $\rightarrow$ tényleg kört találunk
             - vonal esetén csak a végcsúcs lesz ilyen $\rightarrow$ csak itt akadhatunk el $\rightarrow$ tényleg a másik végpontba jutunk
-    - ezután elkezdünk visszafele lépkedni és ha találunk olyan csúcsot, amiből még tovább tudunk lépni, akkor innen újrakezdjük a bejárást, amíg el nem akadunk újra
-        - itt már garantált, hogy ugyanabban a csúcsban fogunk elakadni, mint ahonnan "újrakezdtük"
+    - ezután elkezdünk visszafele lépkedni és ha találunk olyan csúcsot, amiből még tovább tudunk lépni (még vezet ki belőle használatlan él), akkor innen újrakezdjük a bejárást, amíg el nem akadunk újra
+        - itt már garantált, hogy ugyanabban a csúcsban fogunk elakadni, mint ahonnan "újrakezdtük" $=$ újabb kört találunk
     - ez a vissza lépkedés & újra kiterjesztés megy addig, míg vissza ne érünk a kezdőcsúcsba úgy, hogy már nem tudunk onnan "újrakezdéssel" kilépni
     - a folyamat végén a verem tetejétől az alja fele fogja tartalmazni az Euler kört/vonalat
         - (Adott esetben a fordított sorrend is valid lehet. Ez gráftípus és feladatfüggő.)
 
-- Gyakorlófeladatok: *TODO:*
+- Gyakorlófeladatok: 
+[Kattis - Eulerian Path](https://open.kattis.com/problems/eulerianpath), 
+[Kattis - Railroad](https://open.kattis.com/problems/railroad2), 
+[Kattis - Grand Opening](https://open.kattis.com/problems/grandopening), 
+[Kattis - Catenyms](https://open.kattis.com/problems/catenyms)
 
 ### Euler részgráfok:
+
+- Gyakorlófeladat: [CSES - Eulerian Subgraphs](https://cses.fi/problemset/task/2078/)
+
+<br>
+
+- itt csak az irányítatlan esetet mézzük
+- ahhoz, hogy egy gráf egy Euler részgráfját kapjuk, úgy kell elhagynunk/megtartanunk belőle néhány (akár 0) élt, hogy minden csúcs fokszáma páros legyen
+    - igazából a megmaradt élek által meghatározott komponensekben kell legyen 1-1 Euler-kör
+- talán látható, hogy ha éldiszjunkt körök unióját vesszük, az eredmény biztosan Euler részgráf lesz
+    - 1-1 kör hozzáadásánál az érintett csúcsok fokszáma 2-2-vel nő
+    - de nem csak így kapható Euler részgráf
+- mi van, ha megengedjük a nem éldiszjunktságot?
+    - tekintsünk csak 2 kört, az elv általánosítható lesz többre is
+    - a mindkét kör által használt éleket nyilván nem vehetjük be 2-szer
+    - de ha csak 1-szer vesszük be őket, akkor lesznek olyan csúcsok, ahol a fokszám páratlan számmal nőne (ahol a 2 kör "szétválik"/"összecsatlakozik")
+    - ha viszont teljesen elhagyjuk ezeket, akkor Euler részgráfot kapunk
+        - a "szátválasztó"/"összecsatlakozó" csúcsoknál a páratlan fokszám 1-gyel csökken
+        - azoknál a csúcsoknál, melyekbe nem fut "közös él", nem változik semmi
+        - azoknál a csúcsoknál, melyekbe csak "közös él" fut be, a páros fokszám 2-vel csökken $\rightarrow$ páros marad (itt spec. 0 lesz)
+        - az eredmény gráf 1 vagy több kört is tartalmazhat
+    - ez általánosítható több kör "kombinálására": a következőt mindig az előzőek eredménygráfjához vesszük hozzá a fenti módszernek megfelelően
+- hány ilyen részgráf van?
+    - ehhez nevezzünk meg "atomi köröket": olyan körök, melyek pl. pontosan 1 DFS visszaélt tartalmaznak (a többi él faél)
+        - azért "atomi", mert ezeket a köröket nem lehet megkapni semelyik 2 másik (különböző) atomi kör összekombinálásával (bármely kombináció min. 2 visszaélt tartalmaz)
+        - tehát a visszaélek egyértelműen azonosítják az atomi köröket
+    - ezen körök uniója minden olyan élt tartalmaz, ami része lehet körnek
+    - (kellő fejtörés után) rájöhetünk, hogy ezen atomi körök bármely részhalmazának a fenti kombinációjával Euler részgráfot kapunk és minden Euler részgráfot megkaphatunk ezen a módon
+    - tehát az Euler részgráfok száma pontosan a visszélek hatványhalmazának mérete lesz
+        - ami pedig $2^{M-N+C}$, ahol $N$ a csúcsok száma, $M$ az élek száma, $C$ pedig az összefüggő komponensek száma

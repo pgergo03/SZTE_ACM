@@ -32,14 +32,13 @@ Gráfokhoz kapcsolódó témakörök, feladattípusok.
 - utak száma (DAG)
 - körkeresés
 - páros gráf ellenőrzés
-
-*TODO:*
-
 - elvágóélek/hidak, elvágópontok
 - kétszeresen összefüggő komponensek
 - erősen összefüggő komponensek (irányított)
 - Euler vonal
 - Euler részgráfok
+
+*TODO:*
 
 ### 5. Minimális feszítőfa
 
