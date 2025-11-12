@@ -2,11 +2,13 @@
 
 **Halimi 4.1:** 2.4.2 fejezet, 99-103. oldal
 
+**[Vizualizáció](https://visualgo.net/en/ufds)**
+
 Példakód:
 
-- *TODO*
+- [Minta DSU implementáció halmazméret tárolással (dsu.cpp)](./dsu.cpp)
 
-### Diszjunkt halmaz adatszerkezet:
+### Diszjunkt halmaz adatszerkezet (DSU):
 
 - elemek diszjunkt halmazait tároló adatszerkezet
     - minden elem pontosan 1 halmazban szerepel
@@ -56,3 +58,12 @@ Példakód:
         - felső korlát nincs bizonyítva, de feltételezhetően polilogaritmikus az is
         - a gyakorlatban ez is használhatónak tűnik, ACM input méreteknél nem kéne gond legyen belőle, ha ezt használjuk
         - kódolni ezt a legegyszerűbb
+
+### Felhasználási területek:
+
+- Bárhol, ahol a fenti halmazműveleteket hatékonyan kell tudni elvégezni.
+- Gráfoknál (a feladat feltételeinek megfelelő élek mentén kapcsolunk össze):
+    - összefüggő komponensek megadása
+    - flood fill
+    - feszítőfa/-erdő meghatározása
+    - minimális/maximális feszítőfa (Kruskal algoritmus)
