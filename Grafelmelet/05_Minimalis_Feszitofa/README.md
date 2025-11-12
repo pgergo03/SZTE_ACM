@@ -50,3 +50,10 @@
     - adottak $s, t$ csúcsok, kérdés: mi a legkisebb maximális súly, amit érintünk bármely $s-t$ út esetén
     - Meghatározzuk a min. feszítőfát és ebben megnézzük, hogy az $s$-et és $t$-t összekötő úton mi a maximális élsúly
     - *Kihívás:* Mi van akkor, ha nem 1 $(s, t)$ párra kell ezt megválaszolni, hanem mondjuk 100000-re?
+
+### Gyakorlófeladatok:
+
+- [Kattis - Minimum Spanning Tree](https://open.kattis.com/problems/minspantree)
+- [Kattis - A Feast For Cats](https://open.kattis.com/problems/cats)
+- [Kattis - Muddy Hike](https://open.kattis.com/problems/muddyhike)
+- [Kattis - Nature Reserve](https://open.kattis.com/problems/naturereserve)
