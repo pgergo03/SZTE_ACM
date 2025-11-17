@@ -38,8 +38,6 @@ Gráfokhoz kapcsolódó témakörök, feladattípusok.
 - Euler vonal
 - Euler részgráfok
 
-*TODO:*
-
 ### 5. Minimális feszítőfa
 
 - Kruskal algoritmus
@@ -48,11 +46,14 @@ Gráfokhoz kapcsolódó témakörök, feladattípusok.
 ### 6. Legrövidebb utak
 
 - súlyozatlan gráf (BFS)
-- 0-1 gráf (0-1 BFS)
 - DAG (DP)
-- súlyozott gráf (Dijkstra, Bellman-Ford)
+- 0-1 gráf (0-1 BFS)
+
+*TODO:*
+
+- súlyozott gráf (Dijkstra, Bellman-Ford, Bellman-Ford-Moore/SPFA)
 - negatív összsúlyú körök felismerése
-- legrövidebb út több kezdőpont egyikéből
+- SSSP alternatívák (SDSP, SSSDSP, MSSP, MSMDSP)
 - Floyd-Warshall algoritmus (APSP)
 
 ### 7. Fa algoritmusok

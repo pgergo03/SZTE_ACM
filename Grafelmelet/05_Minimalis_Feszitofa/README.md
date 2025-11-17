@@ -1,4 +1,4 @@
-# Gráfbejárás alap típusai
+# Minimális feszítőfa keresése
 
 ### Ide tartozó anyagrész:
 
