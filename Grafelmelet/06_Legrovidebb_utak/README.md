@@ -61,7 +61,10 @@ Ahol nincs más említve, ott 1 kezdőpontból keresünk legrövidebb utat az ö
 
 <br>
 
-- Gyakorlófeldatok: []()
+- Gyakorlófeldatok: [Kattis - Single source shortest path, time table](https://open.kattis.com/problems/shortestpath2), 
+[Kattis - Block Crusher](https://open.kattis.com/problems/blockcrusher), 
+[Kattis - Invasion](https://open.kattis.com/problems/invasion), 
+[Kattis - Emptying the Baltic](https://open.kattis.com/problems/emptyingbaltic)
 
 ### Súlyozott gráfok, tetszőleges élsúlyok:
 
@@ -102,7 +105,9 @@ Ahol nincs más említve, ott 1 kezdőpontból keresünk legrövidebb utat az ö
 
 <br>
 
-- Gyakorlófeldatok: []()
+- Gyakorlófeldatok: [Kattis - Single source shortest path, negative weights](https://open.kattis.com/problems/shortestpath3), 
+[Kattis - XYZZY](https://open.kattis.com/problems/xyzzy), 
+[Kattis - Haunted Graveyard](https://open.kattis.com/problems/hauntedgraveyard)
 
 ### További feladat variánsok:
 
@@ -124,3 +129,7 @@ Ahol nincs más említve, ott 1 kezdőpontból keresünk legrövidebb utat az ö
         - minden csúcspárt megvizsgálunk és ha a belőlük az épp vizsgált csúcsba eddig ismert (megfelelően iránytott) legrövidebb utak összege kisebb, mint az eddigi legrövidebb út a 2 csúcs között, akkor ezt javítjuk erre az összegre
     - ennek a végére kialakulnak a legrövidebb utak
         - a Bellman-Ford algoritmushoz hasonló gondolatmenettel látható
+
+<br>
+
+- Gyakorlófeldatok: *TODO*
