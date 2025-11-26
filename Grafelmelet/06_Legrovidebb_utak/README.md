@@ -49,3 +49,78 @@ Ahol nincs más említve, ott 1 kezdőpontból keresünk legrövidebb utat az ö
  <br>
 
  - Gyakorlófeladat: [Kattis - Ocean Currents](https://open.kattis.com/problems/oceancurrents)
+
+ ### Súlyozott gráfok, nemnegatív élsúlyok:
+
+ - az élek súlya nem negatív és "akármilyen nagy" lehet
+ - ilyenkor lehet használni a **Dijkstra algoritmust**
+    - nagyon hasonlít a (0-1) BFS-hez, csak egyszerű sor helyett rendezett halmazt (standard Dijkstra) / prioritási sort (módosított Dijkstra) használunk amiben kezdőponttól vett távolság szerint növekvő sorrendben tartjuk a(z összes / csak a már elért) csúcsokat
+        - Halmaznál minden csúcshoz max. 1 (távolság, csúcs) párt tárolunk el. Ha jobb utat találunk egy csúcsba az előző értékpárt lecseréljük
+        - Prioritási sornál 1 csúcshoz több (távolság, csúcs) pár is tartozhat, tehát itt nem törlünk eleemket, ha jobb utat találunk. Minden csúcsot csak egyszer, a sorból való 1. kivételkor terjesztünk ki (konkrétan amikor a sorbeli távolság érték azonos a csúcsban tárolt legkisebb távolság értékkel).
+    - Kezdetben a csúcsok távolsága tekinthető $\infty$-nek
+
+<br>
+
+- Gyakorlófeldatok: []()
+
+### Súlyozott gráfok, tetszőleges élsúlyok:
+
+- itt az élek súlya lehet negatív
+- ilyenkor akkor érdemes legrövidebb utakról beszélni, ha a gráfban nincs negatív összsúlyú kör
+    - ha van, és elérhető a kezdőcsúcsból, akkor a kör csúcsainak és az azokból elérhető összes csúcsnak a "távolsága" tekinthető $-\infty$-nek
+
+<br>
+
+- ha nincs negatív összsúlyú kör:
+- a (megfelelően implementált) módosított Dijkstra algoritmus helyes megoldást ad, de exponenciális futásidővel...
+- Jobb opció itt a **Bellman-Ford algoritmus**
+    - Kezdetben a kezdőcsúcs távolság legyen $0$, a többi csúcsé $\infty$
+    - végigmegyünk $(V-1)$-szer az éleken ($V$ a csúcsok száma), irányítatlan esetben mindkét irányban 1-1 szer
+    - ha egy élen (valamelyik irányban) végigmenve jobb utat találunk a végpontba, akkor azt frissítjük
+    - mivel bármely 2 csúcs között bármely út max. $(V-1)$ élen megy keresztül, így ennyiszer végigmenve minden csúcsban már az oda vezető legrövidebb út távolsága lesz
+    - optimalizáció:
+        - érdemes lehet csúcsonként haladva, az adott csúcsból kiinduló éleket sorban feldolgozni (szomszédsági, listával)
+        - ha egy csúcsot még nem értünk el, akkor az összes onnan kiinduló élt kihagyjuk
+- Még valamivel gyorsabb módszer: **Bellman-Ford-Moore / Shortest Path Faster (SPFA) algoritmus**
+    - a standard Bellman-Ford algoritmus gyakran sok olyan él mentén is megpróbál frissíteni, ahol a kezdőpont távolsága nem változott, az előző frissítés óta
+    - Moore optimalizációja:
+        - tartsuk sorban a kiterjesztendő csúcsokat, ill. tartsuk számon, hogy épp mely csúcsok vannak benne ebben a sorban
+        - mindig  sor eelején lévő csúcsot dolgozzuk fel
+            - kivesszük a sorból
+            - próbáljuk kiterjeszteni az élek mentén
+            - ahol rövidebb utat találunk és a szomszédos csúcs nincs a sorban, akkor berkjuk
+        - megállunk mikor kiürül a sor
+    - legrosszabb esetben ugyanolyan a futásidő, mint a Bellman-Ford algoritmusnál, de áltlános esetben sokkal jobb is lehet
+
+<br>
+
+- negatív összsúlyú körök felismerése:
+    - Bellman-Ford: megpróbálunk +1-szer kierjeszteni, ha valahol sikerül, akkor az az él biztosan egy ilyen kör része $\rightarrow$ szülők eltárolásával visszafejthető a kör
+    - SPFA: itt nincs megállási feltétel sem alpból, mert ha nincs negatív kör, akkor mindig terminál
+        - elég ha adunk egy olyat, ami biztos teljesül negtív kör jelenlétekor
+        - pl. 1 csúcsot $V$. alkalommal lépünk bele / $V$ db élen át vezető út "végén" lépünk bele
+
+<br>
+
+- Gyakorlófeldatok: []()
+
+### További feladat variánsok:
+
+- 1 cél elérése bárhonnan (SDSP)
+    - keresés indítása a célból
+- 1 kezdőpont, 1 cél (SSSDSP)
+    - ua., mint a SSSP, csak Dijkstra-nál meg lehet állni, ha elértük a célt
+- több kezdőpont (MSSP)
+    - az összes kezdőpont távolságát 0-ra állítjuk + bettesszük a feldolgozási sorba rögtön
+- több kezdőpont, több cél (MSMDSP)
+    - MSSP + korai leállás (nemnegatív éleknél)
+
+### Legrövidebb út bármely 2 csúcs között (APSP)
+
+- itt minden csúcspár közötti legrövidebb utat akarjuk egyszerre kiszámolni
+- erre használható a **Floyd-Warshall algoritmus**:
+    - kezdetben minden csúcs önmagától vett távolsága legyen 0, az éllel közvetlenül összekötött csúcsok távolsága a köztük futó legrövidebb él hossza, a többi csúcspáré meg $\infty$
+    - sorban végigmegyünk minden csúcson
+        - minden csúcspárt megvizsgálunk és ha a belőlük az épp vizsgált csúcsba eddig ismert (megfelelően iránytott) legrövidebb utak összege kisebb, mint az eddigi legrövidebb út a 2 csúcs között, akkor ezt javítjuk erre az összegre
+    - ennek a végére kialakulnak a legrövidebb utak
+        - a Bellman-Ford algoritmushoz hasonló gondolatmenettel látható

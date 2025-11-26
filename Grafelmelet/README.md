@@ -48,9 +48,6 @@ Gráfokhoz kapcsolódó témakörök, feladattípusok.
 - súlyozatlan gráf (BFS)
 - DAG (DP)
 - 0-1 gráf (0-1 BFS)
-
-*TODO:*
-
 - súlyozott gráf (Dijkstra, Bellman-Ford, Bellman-Ford-Moore/SPFA)
 - negatív összsúlyú körök felismerése
 - SSSP alternatívák (SDSP, SSSDSP, MSSP, MSMDSP)
