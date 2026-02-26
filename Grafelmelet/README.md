@@ -96,5 +96,3 @@ Gráfokhoz kapcsolódó témakörök, feladattípusok.
 - további folyam algoritmusok (push-relabel, min. költségű max. folyam)
 - további párosítási algoritmusok (Hopcroft-Carp, Kuhn-Munkres, Edmonds)
 - Kínai postás feladat
-
-- Hardcore: új, Dijkstra-nál gyorsabb SSSP algoritmus
