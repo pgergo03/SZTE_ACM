@@ -132,4 +132,8 @@ Ahol nincs más említve, ott 1 kezdőpontból keresünk legrövidebb utat az ö
 
 <br>
 
-- Gyakorlófeldatok: *TODO*
+- Gyakorlófeldatok: 
+[Kattis - All Pairs Shortest Path](https://open.kattis.com/problems/allpairspath), 
+[Kattis - Transportation Planning](https://open.kattis.com/problems/transportationplanning), 
+[Kattis - Arbitrage?](https://open.kattis.com/problems/arbitrage), 
+[Kattis - Kastenlauf](https://open.kattis.com/problems/kastenlauf)
