@@ -97,4 +97,12 @@
 
 ### Gyakorlófeladatok:
 
-[TODO](), 
+[CSES - Download Speed](https://cses.fi/problemset/task/1694), 
+[CSES - Police Chase](https://cses.fi/problemset/task/1695), 
+[CSES - Distinct Routes](https://cses.fi/problemset/task/1711), 
+[Kattis - RA Duty Scheduler](https://open.kattis.com/problems/dutyscheduler), 
+[Kattis - Maze Movement](https://open.kattis.com/problems/mazemovement), 
+[Kattis - Jupiter Orbiter](https://open.kattis.com/problems/jupiter), 
+[Kattis - Avoiding the Apocalypse](https://open.kattis.com/problems/avoidingtheapocalypse), 
+[Kattis - The King of the North](https://open.kattis.com/problems/thekingofthenorth), 
+[Kattis - Transportation Delegation](https://open.kattis.com/problems/transportation)
