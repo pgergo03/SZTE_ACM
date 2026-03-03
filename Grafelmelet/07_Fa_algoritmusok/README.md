@@ -4,6 +4,8 @@
 
 **CSES könyv:** 10.1-10.2.2. fejezet, 131-140. oldal
 
+**[Vizualizáció](https://visualgo.net/en/sssp)**
+
 ### Fa bejárási/feldolgozási módok:
 
 - Az általános módszerek (pl. DFS, BFS) nyilván fákra is ugyanúgy használhatók (sőt, néha könnyebb ezeket fákra lekódolni, de ez feladatfüggő)
@@ -29,7 +31,7 @@
 - Gyakorlófeladatok: [CSES - Subordinates](https://cses.fi/problemset/task/1674), 
 [CSES - Tree Matching](https://cses.fi/problemset/task/1130), 
 [CSES - Tree Distances I](https://cses.fi/problemset/task/1132), 
-[CSES - Tree Distances II](https://cses.fi/problemset/task/1133), 
+[CSES - Tree Distances II](https://cses.fi/problemset/task/1133)
 
 ### Átmérő meghatározása:
 
