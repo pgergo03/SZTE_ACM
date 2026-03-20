@@ -75,6 +75,10 @@
     - BFS-t max. $V$-szer futtatunk, mert a legrövidebb forrás-nyelő út min. 1-gyel nő minden DFS-sorozat után (különben nem állnánk le a DFS futtatással)
 - A teljes futásidő így $O(V*(E+VE))=O(V^{2}E)$, ami jobb, mint az Edmonds-Karp, mert $V \ll E$ feltehető
 
+<br>
+
+- [Minta implementáció](./dinitz.cpp)
+
 ### Max. folyam feladat variánsok/alternatívák:
 
 #### Minimális vágás:
