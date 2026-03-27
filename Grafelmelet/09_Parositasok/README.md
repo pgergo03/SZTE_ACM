@@ -58,14 +58,26 @@
 - Az előző módszer hatékonyan gyorsítható azzal, hogy egy heurisztikus kezdeti párosításból indulunk
     - pl. Random sorrendben keresünk párosítatlan szomszédot minden csúcshoz (ami vagy sikerül vagy nem, ez mindegy)
 - Egy jó(l randomizált) heurisztikával elvben $O(\sqrt{V}E)$ műveletigény is elérhető, ami már várhatóan elég lesz a legtöbb feladathoz
-    - de itt azért még járhatunk szerencsétlenül...
+    - (de itt azért még járhatunk szerencsétlenül...)
 
 ### Áttérés maximum folyam feladatra:
 
-- *TODO*
+- A gráfot könnyen folyam hálózattá alakíthatjuk:
+    - Az eredeti éleket egyirányúvá alakítjuk (úgy, hogy azonos irányba néznek)
+    - Felveszünk 1 forrást és 1 nyelőt. A forrásból 1 súlyú éleket húzunk az egyik csúcscsoportba. A nyelőbe 1 súlyú éleket húzunk a másik csúcscspoportból
+- Az így kapott hálózaton a forrásból nyelőbe vihető maximum folyam értéke megegyezik az eredeti gráfon a maximális párosítás méretével.
+- A párosítás-beli élek azok az élek lesznek, ahol az átvitt folyam mennisége 1 a max. folyamban
+- A helyesség azon alapszik, hogy a folyam javító utak visszavezethetők párosítás javító utakra az eredeti gráfban, tehát gyakorlatilag ugyanazt csináljuk, csak más elv alapján.
+- A műveletigény a használt max. folyam kereső algoritmustól függ. Dinitz algoritmussal igazoltan $O(\sqrt{V}E)$ (vegyük észre, hogy ez sokkal jobb a Dinitz általános $O(V^2E)$-s futásidejénél)
+
+### Hopcroft-Karp algoritmus:
+
+- Nem feltétlen komplikáltabb, mint az eddigi módszerek, de nem olyan fontos tudni, mert konkrétan ugyanazt csinálja, mint a Dinitz (páros gráfokon).
+- ld. *[TODO]()*
 
 ### Gyakrolófeladatok:
 
+[Kattis - Book Club](https://open.kattis.com/problems/bookclub), 
 *TODO*
 
 ## Súlyozott páros gráf:
