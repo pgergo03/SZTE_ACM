@@ -74,7 +74,7 @@ Gráfokhoz kapcsolódó témakörök, feladattípusok.
 ### 9. Párosítások
 
 - súlyozatlan páros gráf
-- súlyozott páros gráf
+- súlyozott általános gráf (kis méretű)
 
 ### 10. NP-nehéz/NP-teljes gráfproblémák
 

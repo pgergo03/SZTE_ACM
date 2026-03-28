@@ -28,7 +28,8 @@
     - ekkor rögzítünk egy gyökeret és abból először elvégzünk egy postorder DFS-t, amiben kiszámítunk részinformációkat, amik hasznosak a végső feladat megoldásához (általában a gyökérre ezzel meg is oldjuk a feladatot)
     - ezután egy második, preorder frissítésű DFS-sel végigmegyünk újra a csúcsokon, ahol az aktuális csúcshoz és annak szülőcsúcsához kiszámított információk segítségével már a gyökértől a levelek felé lefele haladva meg tudjuk oldani a teljes feladatot
 
-- Gyakorlófeladatok: [CSES - Subordinates](https://cses.fi/problemset/task/1674), 
+- Gyakorlófeladatok: 
+[CSES - Subordinates](https://cses.fi/problemset/task/1674), 
 [CSES - Tree Matching](https://cses.fi/problemset/task/1130), 
 [CSES - Tree Distances I](https://cses.fi/problemset/task/1132), 
 [CSES - Tree Distances II](https://cses.fi/problemset/task/1133)

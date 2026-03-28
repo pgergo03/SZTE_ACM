@@ -75,10 +75,12 @@
 - Nem feltétlen komplikáltabb, mint az eddigi módszerek, de nem olyan fontos tudni, mert konkrétan ugyanazt csinálja, mint a Dinitz (páros gráfokon).
 - ld. *[TODO]()*
 
-### Gyakrolófeladatok:
+### Gyakorlófeladatok:
 
 [Kattis - Book Club](https://open.kattis.com/problems/bookclub), 
-*TODO*
+[Kattis - Escape Plan](https://open.kattis.com/problems/escapeplan), 
+[Kattis - Flipping Cards](https://open.kattis.com/problems/flippingcards)
+
 
 ## Súlyozott páros gráf:
 
@@ -112,4 +114,6 @@
 
 <br>
 
-- Gyakrolófeladatok: *TODO*
+- Gyakorlófeladatok: 
+[Kattis - Hiding Chickens](https://open.kattis.com/problems/hidingchickens), 
+[UVA - 10911 - Forming Quiz Teams](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=21&page=show_problem&problem=1852#google_vignette)
