@@ -82,6 +82,7 @@ Gráfokhoz kapcsolódó témakörök, feladattípusok.
 - Hamilton út/kör
 - leghosszabb út
 - maximális független csúcshalmaz / minimális csúcslefedés
+- minimális halmaz fedés
 - minimális útlefedés
 - SAT (2-SAT)
 - Steiner-fa

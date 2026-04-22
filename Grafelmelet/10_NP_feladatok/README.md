@@ -18,8 +18,8 @@ Csak a lényeg:
 - Nekünk itt az $"NP - P"$-beli feladatok érdekesek
     - Ezek azok a feladatok, amikre a legjobb ismert algoritmusok futásideje exponenciális vagy még rosszabb (pl. $O(n!)$)
     - Versenyzés közben sok gondolkodásidőt lehet megspórolni, ha jól tudjuk azonosítani, hogy egy feladat ilyen, mert ha igen, akkor *valószínűleg* a szerző sem tud jobb megoldást a "brute force"-nál, azaz nekünk sem kell jobbat kitalálni
-    - A kihívás ilyenkor a keresési tér hatékony vágása szokott lenni (pruning)
-        - **tldr. hatékony backtrack algoritmust kell írni**
+    - A kihívás ilyenkor a keresési tér hatékony vágása szokott lenni (pruning, memorizing)
+        - **tldr. hatékony backtrack és/vagy DP algoritmust kell írni**
 
 <br>
 
@@ -67,23 +67,161 @@ Ez igazából tekinthető egy rendhagyó pruningnak:
 
 <br>
 
-- Gyakorlófeladat: [CSES - Meet in the Middle](https://cses.fi/problemset/task/1628)
+- Gyakorlófeladat:
+[CSES - Meet in the Middle](https://cses.fi/problemset/task/1628)
 
-*TODO:*
+## Utazóügynök probléma (TSP):
 
-## Utazóügynök probléma:
+- **Feladat:** Adott egy súlyozott teljes gráf. Keressünk olyan minimális összúlyú kört, ami minden csúcsot (pontosan egyszer) érint!
+- DP-vel kb. $N<=20$-ra oldható meg
+    - Választunk egy tetszőleges csúcsot, amiből kiindulunk
+    - Állapot paraméterei: már meglátogatott csúcsok a kezdőpont kivételével (bitmaszk), utolsó meglátogatott csúcs (index)
+    - Tárlot érték: Az adott csúcshalmaz csúcsait érintő, az adott utolsó csúcsban végződő minimális összsúlyú út
+    - A végén minden csupa 1-es maszk utolsó csúcsát még össze kell kötni a kezdőcsúccsal és ezekből a minimu összsúlyt venni
+    - $O(2^NN^2)$ futásidő és memóriaigény
+
+- Gyakorlófeladatok: 
+[Kattis - Collecting Beepers](https://open.kattis.com/problems/beepers), 
+[Kattis - Cycles (Easy)](https://open.kattis.com/problems/cycleseasy), 
+[Kattis - Errands](https://open.kattis.com/problems/errands), 
+[Kattis - Bus Tour](https://open.kattis.com/problems/bustour)
+
+
+### Bitonikus TSP:
+
+- Itt adott x, majd y koordináta szerint rendezett pontok halmaza a síkon.
+- Olyan teljes körök közt kell a minimálisat megkeresni, ami a rendezésben 1. csúcsból indulva végig jobbra haladva néhány csúcsot közben érintve átmegy az utolsó csúcsba, majd onnan vissza az elsőbe úgy, hogy az odamenet során nem érintett csúcsok mindegyikét csökkenő sorrendben meglátogatja
+    - Tehát odamenetben a kiválasztott csúcsok (x, y) pár szerint monoton nőnek, visszafele pedig monoton csökkennek (olyan értelemben, ahogy a c++ sort működik pair<>-eken)
+
+<br>
+
+- Kicsit máshogy gondolkodva: 2 a végpontok kivételével diszjunkt monoton út összsúlyát akarjuk minimalizálni úgy, hogy minden köztes csúcs pontosan az egyik úthoz tartozik
+- Ez a variáns megoldható DP-vel már polinom időben:
+    - Paraméterek: egyik út utolsó csúcsa ($i$: index), másik út utolsó csúcsa ($j$: index)
+    - Érték: a legkisebb összsúly, ami úgy jön ki, hogy az utak rendre i-ben és j-ben végződnek
+    - Általános eset, ha leszögezzük, hogy i>j (ez feltehető): $E[i][j]=max(max_{k=1}^{j-1}(E[j][k]+d[k][i]), E[i-1][j] \text{ (ha i-1>j)})$
+    - Alapeset: $E[1][0]=d[0][1]$
+    - A Végeredményben még be kell húznunk +1 élt a végpontba és úgy venni a minimumot
+- Ez így csak $O(n^2)$
+
+- Gyakorlófeladatok: 
+[UVA - 1347 - Tour](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=446&page=show_problem&problem=4093), 
+[**UVA - 1096 - The Islands**](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=245&page=show_problem&problem=3537)
 
 ## Hamilton-kör/-út:
 
+- **Feladat:** Adott egy súlyozatlan gráf. Keressünk olyan  kört/utat, ami minden  csúcsot (pontosan egyszer) érint!
+- Ez a feladat is megoldható kis $N$-re egy, a TSP-hez hasonló DP megoldással. Itt még könnyebb is a dolgunk, mert elég bool értékeket tárolni (~lehetséges vagy sem)
+- Ha a gráf túl nagy ehhez a megoldáshoz, akkor általában nagy mértékű pruning szükséges és/vagy a szerkezet speciális olyan módon, amit ki lehet használni
+
+- Gyakorlófeladatok: 
+[**UVA - 1098 - Robots on Ice**](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=245&page=show_problem&problem=3539), 
+[CSES - Grid Path Description](https://cses.fi/problemset/task/1625), 
+[CSES - Knight's Tour](https://cses.fi/problemset/task/1689/), 
+[Kattis - Reactivity Series](https://open.kattis.com/problems/reactivity)
+
 ## Leghosszabb út:
 
-## Legnagyobb független részhalmaz / Legkisebb csúcslefedés:
+- **Feladat:** Adott egy gráf. Keressünk benne maximális élszámú/összsúlyú utat!
+    - Megj.: út, azaz minden csúcsot max. 1-szer érint
+
+- Kis gráfra ($N<=20$ kb.) szintén alkalmazható a TSP-t megoldó DP módosított változata, csak itt nem minden él létezik, nem számít honnan indulunk, nem kell visszatérni a kezdőcsúcsba és nem kell minden csúcsot meglátogatni
+
+- Gyakorlófeladat: 
+[**Kattis - Flow Free**](https://open.kattis.com/problems/flowfree)
+
+### Leghosszabb út DAG-on:
+
+- DAG-ban nincs kör $\rightarrow$ kiszámíthatóegy topologikus rendezés (DFS v. Kahn algoritmus, ld. [Gráftulajdonságok](../04_Graftulajdonsagok/README.md))
+- A topologikus rendezés sorrendjében feldolgozva a csúcsokat DP-vel már könnyen kiszámítható a leghosszabb út
+
+### Leghosszabb út fában:
+
+- Fában a leghosszabb út az átmérő (*DUH*, ld. [Fa algoritmusok](../07_Fa_algoritmusok/))
+
+## Legnagyobb független csúcshalmaz (MIS) / Legkisebb csúcslefedés (MVC):
+
+- **Súlyozatlan feladat:** Adott egy irányítatlan gráf. Keresünk olyan...
+    - **MIS:** maximális csúcshalmazt, hogy a csúcshalmazon belül egyik csúcs sem szomszédos
+    - **MVC:** minimális csúcshalmazt, hogy minden él legalább egyik végpontja a halmazban van
+- **Súlyozott feladat:** ugyanaz, csak a csúcsoknak súlya is van és az összúlyt is maximalizáljuk (**MWIS**) / minimalizáljuk (**MWVC**)
+- Hasznos lehet, hogy mindkét változatban ez a 2 feladat egymás komplementere, vagyis ha az egyikre van egy megoldásunk, akkor a másikra is egy megoldás a csúcshalmaz komplementere ($MVC=V \setminus MIS$ és $MIS=V \setminus MVC$, és ugyanez a súlyozott változatokra)
+
+- Elég kis gráfon a szomszédságok tárolhatók bitmaszkban, ami hasznos lehet, backtrack pruning-nál (lemaszkoljuk a már nem választható csúcsokat)
+
+- Gyakorlófeladat: 
+[UVA - 11095 - Trabiz City](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=22&page=show_problem&problem=2036)
+
+<br>
+
+### MIS & MVC fa gráfon:
+
+- Fa esetén rögzíthetünk egy gyökeret és alkalmazhatunk DP-t MVC kereséshez:
+    - ha egy csúcsot nem választunk, akkor ki kell választani az összes gyerekét
+    - ha kiválasztjuk, akkor minden gyerekre megnézhetjük, hogy jobb-e kiválasztani vagy nem a részfáját tekintve
+    - így minden csúcsra 2 értéket számítunk ki: MVC a részfájában, ha kiválasztjuk & ha nem választjuk ki
+        - a végén a gyökérben a két érték minimuma lesz a megoldás
+- Ez $O(N)$ alatt megtehető
+
+<br>
+
+- súlyozott eset: teljesen hasonló, csak ha egy adott csúcsot beválasztunk, akkor az nem konstans 1 súllyal, hanem a saját súlyával számít az összegbe
+
+- Gyakorlófeladat: 
+[UVA - 10859 - Placing Lampposts](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=20&page=show_problem&problem=1800)
+
+### MIS & MVC páros gráfon:
+
+- Páros gráfoknál a Kőnig tételnek köszönhetően tudjuk, hogy az MVC mérete pontosan a maximális párosítás méretével egyezik meg
+- Sőt, ha van egy max. párosításunk, abból le tudunk vezetni egy MVC-t is:
+    - Vesszük pl. az összes baloldali párosítatlan csúcsot és mindből indítunk "javító út keresést" (= jobbra párosítatlan, balra párosított élek mentén léphetünk csak), közben megjelölve az összes meglátogatott csúcsot
+    - Ekkor a baloldali jelöletlen és a jobboldali jelölt csúcsok uniója MVC lesz (ennek komplementere pedig MIS)
+
+<br>
+
+- súlyozott eset: ekkor a feladat visszavezethető egy max. folyam feladatra
+    - felveszünk 1-1 forrást, nyelőt, amiből a bal ill. jobb oldali csúcsokba húzott élek kapacitása a megfelelő csúcs súlya lesz, az eredeti élek $\infty$ kapacitást kapnak
+    - Ekkor a MWVC összsúlya megegyezik a max. folyam értékével és a MWIS értéke pedig "$\text{csúcsok súlyösszege} - \text{maxfolyam}$"
+    - A MWVC csúcsai a súlyozatlan esethez hasonlóan megkaphatók:
+        - a forrásból a reziduális gráfon nem telített éleken elérhető jobboldali csúcsok
+        - a nyelőből a reziduális gráfon nemtelített éleken elérhető baloldali csúcsok
+
+- Gyakorlófeladatok: 
+[UVA - 11159 - Factors and Multiples](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=23&page=show_problem&problem=2100), 
+[**Kattis - Bilateral Projects**](https://open.kattis.com/problems/bilateral), 
+[**UVA - 1212 - Duopoly**](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=247&page=show_problem&problem=3653)
 
 ## Minimális halmaz fedés:
 
+- **Feladat:** Adott elemek egy halmaza (Univerzum) és annak néhány részhalmaza, melyek uniója kiteszi az univerzumot. Minimum hány halmaz unióját véve kaphatjuk vissza a teljes univerzumot?
+- kis univerzumra a bitmaszk itt is hasznos lehet backtrack pruning-hoz
+
+- Gyakorlófeladat: 
+[Kattis - Social Advertising](https://open.kattis.com/problems/socialadvertising)
+
 ## Minimális útlefedés:
 
+- **Feladat:** Adott egy gráf. Minimum hány csúcsdiszjunkt úttal tudjuk lefedni az összes csúcsát?
+- Kis gráfra a TSP megoldásához hasonló DP itt is alkalmazható:
+    - visszavezetés TSP-re: létező él $\rightarrow$ 0 súly, nem létező él $\rightarrow$ 1 súly
+
+### Minimális útlefedés DAG-on:
+
+- itt kiindulhatunk abból, hogy minden csúcsból indul egy 0-hosszú út
+- ha úgy választunk éleket, hogy minden csúcsból max. 1-1 be- ill. kimenő élt választunk ki akkor minden egyes validan kiválasztott éllel 1-gyel kisebb útlefedést kapunk
+    - ez általános gráf esetén nem így van, mert ott ha így bezárunk egy kört, amit nem lenne szabad
+- a feladat így átírható max. párosítássá:
+    - minden csúcsot ketté bontunk (ki és be komponensekre)
+        - a ki komponensből futnak ki a kimenő élek a megfelelő csúcsok be komponenseibe
+    - így egy páros gráfot kapunk, ahol egy párosításban minden párosított él azt jelenti, hogy az él végpontjában lévő csúcsból nem kell új utat indítani
+    - tehát egy max. párosítás esetén megkapjuk a minimális útlefedést ($N-\text{max. párosítás mérete}$)
+
+- Gyakorlófeladat: 
+[UVA - 1184 - Air Raid](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=246&page=show_problem&problem=3625)
+
 ## Logikai formula kielégíthetősége (SAT):
+
+
 
 ## Steiner-fa probléma gráfokra:
 
